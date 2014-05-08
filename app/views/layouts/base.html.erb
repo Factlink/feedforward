@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+ <html class="<%= browser_class_name  %>">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+      <% if content_for? :title %>
+        <%= yield :title %>
+      <% else %>
+        Feed Forward
+      <% end %>
+    </title>
+    <meta name="description" content="">
+    <meta name="google-site-verification" content="ecWX-XgW6gT2y6TlW4HD-Of0TpyhbBcxfeYgv8au2OA" />  <!-- Keep for Google site verification -->
+
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+    <%= stylesheet_link_tag "application" %>
+    <%= yield :specific_stylesheet_tag %>
+
+    <%= yield :meta_tags %>
+
+    <link rel="chrome-webstore-item"
+      href="https://chrome.google.com/webstore/detail/cobkhjnnnbmaigjhgpmmlkmaidbhpinb">
+
+    <%= render 'snippets/csrf' %>
+
+    <%= inject_special_test_code %>
+  </head>
+  <body class="controller_<%= controller.controller_name -%> action_<%= controller.action_name -%><%= " show_footer" if defined? show_footer and show_footer %>">
+    <%= render 'flash/notification_center', notice: notice, alert: alert %>
+
+    <div id="js-topbar-region"></div>
+
+    <%= yield :main %>
+
+    <% if defined? show_footer and show_footer %>
+      <%= render "base/footer" %>
+    <% end %>
+
+    <%= javascript_include_base %>
+
+    <script>
+      Factlink.siteInitializer();
+    </script>
+
+    <%= yield :alert_javascript %>
+    <%= yield :specific_javascript %>
+  </body>
+</html>

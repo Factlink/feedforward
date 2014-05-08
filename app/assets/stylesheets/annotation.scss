@@ -1,0 +1,58 @@
+$avatarSize: 32px;
+$avatarOffset: $avatarSize + 10px;
+
+.annotation {
+  position: relative;
+  min-height: $avatarSize;
+  margin-left: $avatarOffset;
+}
+
+.annotation-avatar-container {
+  @extend %centering;
+
+  position: absolute;
+  left: -$avatarOffset;
+  top: 0;
+
+  width: $avatarSize;
+  height: $avatarSize;
+  border: 1px lightgrey solid;
+  border-radius: $baseBorderRadius;
+  background: white;
+}
+
+.annotation-avatar {
+  @extend %centering-inner;
+  max-width: $avatarSize;
+  max-height: $avatarSize;
+}
+
+.annotation-balloon {
+  background: $lightYellow;
+  white-space: pre-line;
+  word-wrap: break-word;
+  max-width: 100%;
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: $baseBorderRadius;
+  position: relative;
+
+  &:before {
+    content: '';
+
+    position: absolute;
+    left: -$triangleSize;
+    top: $avatarSize/2 - $triangleSize;
+
+    width: 0;
+    height: 1px;
+    border: $triangleSize solid transparent;
+    border-left: none;
+    border-right-color: $lightYellow;
+  }
+}
+
+.annotation-host {
+  font-weight: $baseFontBoldWeight;
+  word-break: break-all;
+}

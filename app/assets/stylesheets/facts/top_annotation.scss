@@ -1,0 +1,16 @@
+.top-annotation {
+  border-bottom: 1px lightgrey solid;
+  background: white;
+  position: relative;
+  padding: $votePadding;
+  line-height: $baseFontSize * 1.5;
+  word-break: break-word;
+}
+
+.top-annotation-text {
+  white-space: pre-line;
+}
+
+.annotation-options {
+  padding: 0 $votePadding;
+}

@@ -1,0 +1,10 @@
+.content { //TODO: rename this really-hard-to-identify class
+  background: white;
+  padding: $contentPadding 0;
+  font-size: 14px;
+}
+
+.narrow-indented-block {
+  width: 620px;
+  margin-left: 20px;
+}

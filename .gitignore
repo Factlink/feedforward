@@ -1,0 +1,13 @@
+.idea/
+.DS_Store
+node_modules/
+*~
+.bundle/
+/.project
+/proxy
+*.sha-cache
+.db-dir-concat
+/log
+/tmp
+.approvals
+.env

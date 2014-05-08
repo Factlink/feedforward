@@ -1,0 +1,9 @@
+.main-region-tabs {
+  text-align: right;
+  margin-bottom: 10px;
+  color: $metaFontColor;
+
+  a.main-region-tab-active {
+    color: $metaFontColor;
+  }
+}

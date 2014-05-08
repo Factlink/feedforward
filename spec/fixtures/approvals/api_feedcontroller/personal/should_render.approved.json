@@ -1,0 +1,138 @@
+[
+  {
+    "action": "followed_user",
+    "created_at": "<created_at>",
+    "id": "<id>",
+    "timestamp": "<timestamp>",
+    "followed_user": {
+      "id": "<id>",
+      "name": "John3 Doe3",
+      "username": "johndoe3",
+      "avatar_url": "https://secure.gravatar.com/avatar/0c0b78bf3bb3107091bdb93c94ba73a3?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    },
+    "user": {
+      "id": "<id>",
+      "name": "John2 Doe2",
+      "username": "johndoe2",
+      "avatar_url": "https://secure.gravatar.com/avatar/9ebe4ca61cfc3e9d3fc15b3e56710734?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    }
+  },
+  {
+    "action": "followed_user",
+    "created_at": "<created_at>",
+    "id": "<id>",
+    "timestamp": "<timestamp>",
+    "followed_user": {
+      "id": "<id>",
+      "name": "John1 Doe1",
+      "username": "johndoe1",
+      "avatar_url": "https://secure.gravatar.com/avatar/bdcf52014be3eaaf4c83248bc7229900?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    },
+    "user": {
+      "id": "<id>",
+      "name": "John2 Doe2",
+      "username": "johndoe2",
+      "avatar_url": "https://secure.gravatar.com/avatar/9ebe4ca61cfc3e9d3fc15b3e56710734?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    }
+  },
+  {
+    "action": "created_comment",
+    "created_at": "<created_at>",
+    "id": "<id>",
+    "timestamp": "<timestamp>",
+    "fact": {
+      "id": "<id>",
+      "site_url": "http://example.org/1.html",
+      "displaystring": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla",
+      "created_at": "<created_at>",
+      "site_title": "Fact title 1",
+      "html_content": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
+    },
+    "comment": {
+      "id": "<id>",
+      "created_by": {
+        "id": "<id>",
+        "name": "John2 Doe2",
+        "username": "johndoe2",
+        "avatar_url": "https://secure.gravatar.com/avatar/9ebe4ca61cfc3e9d3fc15b3e56710734?size=<SIZE>&rating=PG&default=mm",
+        "deleted": false
+      },
+      "created_at": "<created_at>",
+      "content": "hallo",
+      "formatted_content": "hallo",
+      "markup_format": "plaintext",
+      "sub_comments_count": 0,
+      "is_deletable": true,
+      "tally": {
+        "believes": 1,
+        "disbelieves": 0,
+        "current_user_opinion": "no_vote"
+      }
+    },
+    "user": {
+      "id": "<id>",
+      "name": "John2 Doe2",
+      "username": "johndoe2",
+      "avatar_url": "https://secure.gravatar.com/avatar/9ebe4ca61cfc3e9d3fc15b3e56710734?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    }
+  },
+  {
+    "action": "created_sub_comment",
+    "created_at": "<created_at>",
+    "id": "<id>",
+    "timestamp": "<timestamp>",
+    "fact": {
+      "id": "<id>",
+      "site_url": "http://example.org/1.html",
+      "displaystring": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla",
+      "created_at": "<created_at>",
+      "site_title": "Fact title 1",
+      "html_content": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
+    },
+    "comment": {
+      "id": "<id>",
+      "created_by": {
+        "id": "<id>",
+        "name": "John1 Doe1",
+        "username": "johndoe1",
+        "avatar_url": "https://secure.gravatar.com/avatar/bdcf52014be3eaaf4c83248bc7229900?size=<SIZE>&rating=PG&default=mm",
+        "deleted": false
+      },
+      "created_at": "<created_at>",
+      "content": "hoi",
+      "formatted_content": "hoi",
+      "markup_format": "plaintext",
+      "sub_comments_count": 2,
+      "is_deletable": false,
+      "tally": {
+        "believes": 1,
+        "disbelieves": 0,
+        "current_user_opinion": "no_vote"
+      }
+    },
+    "sub_comment": {
+      "id": "<id>",
+      "created_by": {
+        "id": "<id>",
+        "name": "John2 Doe2",
+        "username": "johndoe2",
+        "avatar_url": "https://secure.gravatar.com/avatar/9ebe4ca61cfc3e9d3fc15b3e56710734?size=<SIZE>&rating=PG&default=mm",
+        "deleted": false
+      },
+      "created_at": "<created_at>",
+      "formatted_content": "doei"
+    },
+    "user": {
+      "id": "<id>",
+      "name": "John2 Doe2",
+      "username": "johndoe2",
+      "avatar_url": "https://secure.gravatar.com/avatar/9ebe4ca61cfc3e9d3fc15b3e56710734?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    }
+  }
+]

@@ -1,0 +1,59 @@
+<%
+  profile = Backend::Users.profile(username: @activity[:user].username)
+%>
+
+<% content_for :email_header do %>
+  <h1 class="header-title">Hello <%= @user.full_name %></h1>
+  <h2 class="header-subtitle"><%= @activity[:user].name %> is now following you on Factlink</h2>
+<% end %>
+
+<table cellpadding="0" cellspacing="0" border="0" id="user" width="100%">
+  <tr>
+    <td class="user-header">
+      <img class="user-image" src="<%= @activity[:user].avatar_url.fill_in(32) %>" width="32" height="32" alt="<%= @activity[:user].name %>" />
+      <%= link_to_possibly_dead_user @activity[:user], class: "user-name" %>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <table cellpadding="20" cellspacing="0" border="0" id="user-info" width="100%">
+        <tr>
+          <td class="user-info-description" colspan="3">
+            <p><%= profile[:biography] %></p>
+          </td>
+        </tr>
+        <tr>
+          <td class="user-info-stat" width="50px">
+            <span class="muted">Followers</span><br />
+            <span class="user-info-value">
+              <%= profile[:followers_count] %>
+            </span>
+          </td>
+          <td class="user-info-stat no-border" width="50px">
+            <span class="muted">Following</span><br />
+            <span class="user-info-value">
+              <%= profile[:following_count] %>
+            </span>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<br />
+
+<table class="button" align="center" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td class="button-inner">
+      <a href="<%= user_profile_url(@activity[:user].username) %>">
+        <div class="button-link">
+          Follow <%= @activity[:user].name %>
+        </div>
+      </a>
+    </td>
+  </tr>
+</table>
+
+<br /><br />

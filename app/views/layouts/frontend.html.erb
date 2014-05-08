@@ -1,0 +1,15 @@
+<% content_for :main do %>
+  <div class="container">
+    <section id="main-column">
+      <%= yield %>
+    </section>
+  </div>
+<% end %>
+
+<% content_for :specific_javascript do %>
+
+  <%= yield :javascript %>
+
+<% end %>
+
+<%= render template: 'layouts/base' %>

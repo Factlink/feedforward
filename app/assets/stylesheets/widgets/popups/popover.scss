@@ -1,0 +1,154 @@
+.white-popover {
+  position: relative;
+  visibility: visible;
+  display: inline-block;
+
+  // force new stacking context for arrow shadow
+  z-index: 1;
+}
+
+.white-popover > .popover-content {
+  display: inline-block;
+  @include background-clip(padding-box);
+  background: white;
+  border-radius: $baseBorderRadius;
+  box-shadow: $blockBorder, 0 $PopoverShadowBottomSize 5px $PopoverShadowBottomColor;
+
+  // some basic resets
+  line-height: $baseLineHeight;
+  text-align: left;
+}
+
+.tether-element-attached-top .white-popover {
+  top: $triangleSize + 1px;
+
+  > .popover-arrow {
+    @include triangle-arrow-up($PopoverArrowTopBorderColor);
+    top: 0;
+    left: 50%;
+  }
+}
+
+.tether-element-attached-bottom .white-popover {
+  top: -($triangleSize + 1px);
+
+  > .popover-arrow {
+    @include triangle-arrow-down($PopoverArrowBorderColor, $PopoverArrowBorderOffset);
+    bottom: 0;
+    left: 50%;
+  }
+}
+
+.tether-element-attached-right .white-popover {
+  left: -($triangleSize + 1px);
+
+  > .popover-arrow {
+    @include triangle-arrow-right($PopoverArrowBorderColor, $PopoverArrowBorderOffset);
+    right: 0;
+    top: 50%;
+  }
+}
+
+.tether-element-attached-left .white-popover {
+  left: $triangleSize + 1px;
+
+  > .popover-arrow {
+    @include triangle-arrow-left($PopoverArrowBorderColor, $PopoverArrowBorderOffset);
+    left: 0;
+    top: 50%;
+  }
+}
+
+.translucent-popover {
+  position: relative;
+  visibility: visible;
+  display: inline-block;
+}
+
+.tether-element-attached-bottom .translucent-popover {
+  top: -$triangleSize;
+
+  > .popover-arrow {
+    top: 100%;
+    left: 50%;
+    margin-top: 0;
+    border-bottom: none;
+    border-top-color: $darkTranslucentGrey;
+  }
+}
+
+.tether-element-attached-left .translucent-popover {
+  left: $triangleSize;
+
+  > .popover-arrow {
+    right: 100%;
+    top: 50%;
+    margin-right: 0;
+    border-left: none;
+    border-right-color: $darkTranslucentGrey;
+  }
+}
+
+.tether-element-attached-top .translucent-popover {
+  top: $triangleSize;
+
+  > .popover-arrow {
+    bottom: 100%;
+    left: 50%;
+    margin-bottom: 0;
+    border-top: none;
+    border-bottom-color: $darkTranslucentGrey;
+  }
+}
+
+.tether-element-attached-right .translucent-popover {
+  left: -$triangleSize;
+
+  > .popover-arrow {
+    left: 100%;
+    top: 50%;
+    margin-left: 0;
+    border-right: none;
+    border-left-color: $darkTranslucentGrey;
+  }
+}
+
+.translucent-popover > .popover-content {
+  background: $darkTranslucentGrey;
+  color: white;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 9px 18px;
+  text-align: center;
+}
+
+.translucent-popover > .popover-arrow {
+  border: floor($triangleSize) solid transparent;
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  margin: -8px;
+  @include box-sizing(content-box);
+}
+
+$pinMargin: 5px;
+
+.tether-pinned-left .white-popover,
+.tether-pinned-left .translucent-popover {
+  left: $pinMargin;
+}
+
+.tether-pinned-right .white-popover,
+.tether-pinned-right .translucent-popover {
+  left: -$pinMargin;
+}
+
+.tether-pinned-top .white-popover,
+.tether-pinned-top .translucent-popover {
+  top: $pinMargin;
+}
+
+.tether-pinned-bottom .white-popover,
+.tether-pinned-bottom .translucent-popover {
+  top: -$pinMargin;
+}

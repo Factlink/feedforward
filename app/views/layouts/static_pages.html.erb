@@ -1,0 +1,22 @@
+<% content_for :main do %>
+  <div class="header">
+    <div class="header-stars"></div>
+    <div class="header-earth"></div>
+
+    <div class="container">
+      <%= yield :header %>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container">
+      <%= yield :content %>
+    </div>
+  </div>
+
+  <%= yield :below_content %>
+<% end %>
+
+<%= render template: "layouts/base", locals: {
+  show_footer: true
+} %>

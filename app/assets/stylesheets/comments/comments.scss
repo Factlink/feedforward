@@ -1,0 +1,83 @@
+$impactColouredBorderWidth: 3px;
+$commentCreatorAvatarSize: 32px; //has to be kept in sync with the avatar size.
+
+.opinionated-avatar,
+.post-creator-avatar {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+}
+
+.comment-container {
+  @extend %white-box-grey-border-bottom;
+  position: relative;
+  margin-bottom: $sidebarMarginBetween;
+}
+
+.comment-container:hover .comment-post-bottom {
+  opacity: 1;
+}
+
+.comment-content-container {
+  display: table-cell;
+  width: 100%;
+  padding-top: $votePadding;
+  padding-right: $votePadding;
+}
+
+.comment-post-heading {
+  margin-bottom: 5px;
+}
+
+.comment-post-time {
+  line-height: $commentCreatorAvatarSize;
+  float: right;
+  color: $grayLight;
+  font-size: 11px;
+}
+
+.comment-content {
+  display: block;
+  white-space: pre-line;
+  word-break: break-word;
+}
+
+.comment-post-creator {
+  padding: 0 7px;
+}
+
+.comment-post-creator-name {
+  @extend %ellipsis-inline-block;
+  max-width: 200px;
+  line-height: $commentCreatorAvatarSize;
+  vertical-align: middle;
+}
+
+.comment-post-bottom {
+  display: block;
+  padding: 10px;
+  opacity: 0.4;
+  transition: opacity 0.5s ease;
+  font-size: $metaFontSize;
+  color: $metaFontColor;
+  margin: 0;
+}
+
+.comment-post-bottom-right {
+  float: right;
+}
+
+.comment-edit-icon {
+  position: relative;
+  top: 1px;
+}
+
+// Irrelevant (faded out)
+.comment-irrelevant {
+  opacity: 0.6;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}

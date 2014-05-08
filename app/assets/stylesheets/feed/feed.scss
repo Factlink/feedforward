@@ -1,0 +1,181 @@
+$feedPadding: 5px;
+$smallFeedPadding: 3px;
+$headerHeight: 48px;
+$headerInnerHeight: 32px;
+$avatarSmallHeight: 32px;
+$headerBorder: 1px;
+
+.feed-activity {
+  padding: $smallFeedPadding 0;
+
+  &:first-child {
+    padding-top: 0;
+  }
+
+  @include from-width(600px) {
+    padding: $feedPadding 0;
+  }
+}
+
+.feed-activity-user-avatar {
+  position: absolute;
+  border-radius: $baseBorderRadius;
+  vertical-align: middle;
+  width: $avatarSmallHeight;
+  height: $avatarSmallHeight;
+  opacity: 0.9;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @include from-width(600px) {
+    height: $headerHeight;
+    width: $headerHeight;
+  }
+}
+
+.feed-activity-followed-avatar {
+  margin: 0 3px;
+  @include remove-element-below(600px);
+}
+
+.feed-activity-container {
+  display: block;
+  vertical-align: top;
+  padding: 0 10px;
+  border-bottom: $headerBorder lightgrey solid;
+  border-radius: $baseBorderRadius;
+  color: $baseFontColor;
+  background: white;
+  margin-left: $avatarSmallHeight + 2*$smallFeedPadding;
+  min-height: $avatarSmallHeight;
+
+  @include from-width(600px) {
+    margin-left: $headerHeight + 2*$feedPadding;
+    min-height: $headerHeight;
+  }
+}
+
+.feed-activity-box-balloon {
+  color: $baseFontColor;
+  transition: 0.5s;
+}
+
+.feed-activity-content {
+  color: $baseFontColor;
+  word-break: break-word;
+  overflow: hidden;
+
+  &:hover .feed-comment-box-balloon:before {
+    @extend .feed-activity-box-balloon;
+    border-right-color: darken($grayLighter, 10);
+  }
+
+  &:hover .feed-comment-box-balloon {
+    @extend .feed-activity-box-balloon;
+    background-color: darken($grayLighter, 10);
+  }
+
+  &:hover .annotation-balloon:before {
+    @extend .feed-activity-box-balloon;
+    border-right-color: darken($lightYellow, 10);
+  }
+
+  &:hover .annotation-balloon {
+    @extend .feed-activity-box-balloon;
+    background-color: darken($lightYellow, 10);
+  }
+
+  &:hover .challenge-box {
+    @extend .feed-activity-box-balloon;
+    background-color: darken($grayLighter, 10);
+  }
+}
+
+.feed-activity-heading {
+  line-height: $avatarSmallHeight;
+
+  @include from-width(600px) {
+    line-height: $headerHeight;
+  }
+}
+
+.feed-activity-action {
+  @extend %ellipsis-inline-block;
+  display: block;
+}
+
+.feed-activity-description {
+  color: #999;
+}
+
+.feed-activity-username {
+  font-weight: 600;
+}
+
+.feed-activity-time {
+  float: right;
+  font-size: 11px;
+  text-align: right;
+  color: #999;
+}
+
+.feed-comment-box {
+  position: relative;
+  min-height: $avatarSmallHeight;
+}
+
+.feed-comment-box-avatar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: $avatarSmallHeight;
+  height: $avatarSmallHeight;
+  border-radius: $baseBorderRadius;
+}
+
+.feed-comment-box-balloon {
+  margin-left: $avatarSmallHeight + 10px;;
+  background: $grayLighter;
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: $baseBorderRadius;
+  position: relative;
+  white-space: pre-line;
+
+  &:before {
+    content: '';
+
+    position: absolute;
+    left: -$triangleSize;
+    top: $avatarSmallHeight/2 - $triangleSize;
+
+    width: 0;
+    height: 1px;
+    border: $triangleSize solid transparent;
+    border-left: none;
+    border-right-color: $grayLighter;
+  }
+}
+
+.feed-lowest-comment {
+  margin: 5px 0;
+
+  @include from-width(600px) {
+    margin: 10px 0;
+  }
+}
+
+.challenge-box {
+  background: $grayLighter;
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: $baseBorderRadius;
+
+  margin-bottom: 5px;
+
+  @include from-width(600px) {
+    margin-bottom: 10px;
+  }
+}

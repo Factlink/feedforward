@@ -1,0 +1,42 @@
+.footer {
+  @extend %centering;
+  border-top: 1px solid lightgrey;
+}
+
+.footer-inner {
+  @extend %centering-inner;
+  text-align: center;
+}
+
+.footer-item {
+  display: inline-block;
+  padding-right: 9px;
+  line-height: 2.5;
+
+  &:after {
+    content: "·";
+  }
+
+  &:last-child {
+    padding: 0;
+
+    &:after {
+      content: "";
+    }
+  }
+}
+
+.footer-item-link {
+  margin-right: 9px;
+
+  font-weight: bold;
+  transition: color .15s ease-in-out;
+}
+
+.footer-copyright {
+  color: #777;
+}
+
+.footer-right {
+  @extend %clearfix;
+}

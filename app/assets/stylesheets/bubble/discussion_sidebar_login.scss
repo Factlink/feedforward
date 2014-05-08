@@ -1,0 +1,37 @@
+.discussion-login, .discussion-menu {
+  @extend %white-box-grey-border-bottom;
+  margin-bottom: 9px;
+}
+
+.discussion-login {
+  text-align: center;
+  padding: 8px $votePadding;
+}
+
+.discussion-menu {
+  @extend %centering-y;
+  text-align: right;
+}
+
+.discussion-menu-item {
+  @extend %centering-inner;
+  padding: 5px 10px;
+  font-weight: 600;
+
+  &:first-child {
+    border-right: 1px lightgrey solid;
+  }
+}
+
+.discussion-menu-link {
+  @extend %centering-inner;
+  @extend %centering;
+  height: 100%;
+  display: block;
+}
+
+.discussion-menu-username {
+  @extend %ellipsis-inline-block;
+  vertical-align: middle;
+  max-width: 200px;
+}

@@ -1,0 +1,57 @@
+// TODO: we shouldn't call this "voting" but opinionating, polling, or something else
+//       since it's quite distinct from voting (on comments)
+
+$avatarSize: 24px;
+
+.button-interesting-tally {
+  font-weight: 600;
+  display: inline-block;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  min-width: 34px;
+  margin-right: 5px;
+  text-align: center;
+}
+
+.button-interesting-star {
+  color: lightgrey;
+  transition: color 0.5s;
+  position: relative;
+  top: 1px;
+}
+
+.button-interesting-star-active {
+  color: #F5A623;
+}
+
+.interested-avatars {
+  display: block;
+  margin: 10px 0;
+}
+
+.interested-avatar {
+  display: inline-block;
+  margin-left: 4px;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.opinionators-avatar-image {
+  vertical-align: top;
+  border-radius: 3px;
+}
+
+.interested-avatars-more {
+  margin-left: 3px;
+  background: $blue;
+  font-weight: 600;
+  color: white;
+  padding: 0 5px;
+  border-radius: 3px;
+  display: inline-block;
+  min-width: $avatarSize;
+  line-height: $avatarSize;
+  vertical-align: top;
+}
+

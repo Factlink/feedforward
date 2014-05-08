@@ -1,0 +1,21 @@
+{
+  "id": "<id>",
+  "created_by": {
+    "id": "<id>",
+    "name": "John1 Doe1",
+    "username": "johndoe1",
+    "avatar_url": "https://secure.gravatar.com/avatar/bdcf52014be3eaaf4c83248bc7229900?size=<SIZE>&rating=PG&default=mm",
+    "deleted": false
+  },
+  "created_at": "<created_at>",
+  "content": "Gerard is een gekke meneer",
+  "formatted_content": "Gerard is een gekke meneer",
+  "markup_format": "plaintext",
+  "sub_comments_count": 0,
+  "is_deletable": true,
+  "tally": {
+    "believes": 1,
+    "disbelieves": 0,
+    "current_user_opinion": "believes"
+  }
+}

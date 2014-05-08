@@ -1,0 +1,15 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: factlink_development
+  socket: /tmp/.s.PGSQL.5432
+
+test:
+  <<: *default
+  database: factlink_test
+  socket: /tmp/.s.PGSQL.5432

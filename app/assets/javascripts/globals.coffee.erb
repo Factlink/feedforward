@@ -1,0 +1,58 @@
+# ensure we update this file when we update the locales
+# SHASUM of locales: d1de0d271dac8eb3c821a0bcaf1b349668e0c488
+
+window.Factlink ||= {}
+
+bookmarklet = ->
+  window.FactlinkApiBaseUri = <%= FactlinkUI::Application.config.core_url.to_json %>
+  script = document.createElement("script")
+  script.src = <%= (FactlinkUI::Application.config.jslib_url  + '?o=bookmarklet').to_json %>
+  script.onload = -> __internalFactlinkState("bookmarkletLoaded")
+  document.head.appendChild(script)
+
+Factlink.Global =
+  ajax_loader_image: '<%= image_path("ajax-loader.gif") %>'
+  bookmarklet_link: 'javascript:(' + bookmarklet.toString() + ')()'
+
+  facebook_app_id: '<%= FactlinkUI::Application.config.facebook_app_id %>'
+
+  support_email: '<%= FactlinkUI::Application.config.support_email %>'
+
+  core_url: "<%= URI.parse(FactlinkUI::Application.config.core_url).to_s %>"
+  environment: "<%= Rails.env %>"
+  t: {}
+  signed_in: false
+  ckeditor_config:
+    customConfig: ''
+    language: 'en'
+
+    toolbar: [
+      { name: 'basicstyles', items: [ 'Bold', 'Italic', 'Underline', '-', 'RemoveFormat' ] },
+      { name: 'links', items: [ 'Link', 'NumberedList', 'Youtube' ] },
+    ]
+
+    extraPlugins: 'youtube'
+
+<%
+  [
+    :follow_user,
+    :followed,
+    :following,
+    :unfollow,
+
+    :post_comment,
+    :post_subcomment,
+    :factlinks,
+
+    :anecdote,
+
+    :app_name,
+    :add_comment_hint1,
+    :add_comment_hint2,
+
+  ].each do |translation|
+%>
+
+Factlink.Global.t.<%= translation.to_s %> = "<%= I18n.t(translation) %>"
+
+<% end %>

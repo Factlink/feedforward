@@ -1,0 +1,13 @@
+<% content_for :main do %>
+  <div class="container one-column-container">
+    <%= yield %>
+  </div>
+<% end %>
+
+<% content_for :specific_javascript do %>
+  <%= yield :javascript %>
+<% end %>
+
+<%= render template: "layouts/base", locals: {
+  show_footer: false
+} %>

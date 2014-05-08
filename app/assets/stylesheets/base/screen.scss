@@ -1,0 +1,31 @@
+* {
+  @include box-sizing(border-box);
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow-y: scroll;
+  background-color: $factlinkBackgroundColor;
+}
+
+.container {
+  min-width: 320px;
+  max-width: $siteWidth;
+  margin-right: auto;
+  margin-left: auto;
+  padding: $containerPaddingY $pageSidePadding;
+}
+
+.one-column-container {
+  padding-top: 80px;
+}
+
+#main-column {
+  min-height: 100%;
+  width: 100%;
+  display: inline-block;
+}

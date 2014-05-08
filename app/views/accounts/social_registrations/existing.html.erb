@@ -1,0 +1,35 @@
+<% content_for :account_popup_content do %>
+  <h1 class="accounts-popup-heading">Connect with your existing <%= t(:app_name) %> account</h1>
+
+  <%= form_for(@user, as: :user, url: social_accounts_new_path) do |f| %>
+    <div class="accounts-popup-form">
+      <table class="accounts-popup-fields-container">
+        <tr>
+          <td><%= f.label :email, "Email address" %></td>
+          <td><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= possible_error_for_field(@user, :email) %></td>
+        </tr>
+        <tr>
+          <td><%= f.label :password, "Password" %></td>
+          <td><%= f.password_field :password %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= possible_error_for_field(@user, :password) %></td>
+        </tr>
+      </table>
+
+      <%= link_to "Forgot your password?", new_password_path('user'), target: '_blank' %>
+
+      <% if @alternative_provider_name %>
+        <br>
+        <%= link_to "Or sign in to your existing account with #{@alternative_provider_name.capitalize}.", "/auth/#{@alternative_provider_name}" %>
+      <% end %>
+    </div>
+
+    <div class="accounts-popup-button-wrapper">
+      <button type="submit" class="button-confirm accounts-popup-button" data-disable-with="Submitting...">Continue</button>
+    </div>
+  <% end %>
+<% end %>

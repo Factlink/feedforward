@@ -1,0 +1,42 @@
+.evidence-vote-relevance {
+  display: inline-block;
+  width: $votePadding;
+}
+
+.comment-votes-container {
+  display: table-cell;
+  vertical-align: top;
+}
+
+.comment-votes {
+  margin: 0 10px;
+  margin-top: $votePadding;
+  text-align: center;
+}
+
+.comment-vote-amount {
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.comment-vote-up,
+.comment-vote-down {
+  @extend %button-base;
+  background-color: $buttonBackground;
+  @include button-height(22px);
+  color: darken($buttonBackground, 20);
+  font-size: 0.7em;
+  padding: 0 2px;
+
+  &:hover {
+    color: darken($buttonBackground, 45);
+  }
+
+  &.comment-vote-active {
+    @extend %button-active-base;
+    background-color: $blue;
+    color: white;
+  }
+}

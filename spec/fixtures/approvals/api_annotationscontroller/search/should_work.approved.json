@@ -1,0 +1,18 @@
+[
+  {
+    "id": "<id>",
+    "site_url": "url",
+    "displaystring": "oil dobedoo",
+    "created_at": "<created_at>",
+    "site_title": "title",
+    "html_content": "oil dobedoo"
+  },
+  {
+    "id": "<id>",
+    "site_url": "url",
+    "displaystring": "you got oil mister?",
+    "created_at": "<created_at>",
+    "site_title": "title",
+    "html_content": "you got oil mister?"
+  }
+]

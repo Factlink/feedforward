@@ -1,0 +1,99 @@
+.topbar {
+  background-color: white;
+  border-bottom: 1px lightgrey solid;
+}
+
+.topbar-inner {
+  @extend %centering-y;
+  padding: 0 $pageSidePadding;
+  height: $topbarHeight;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $siteWidth;
+}
+
+.topbar-logo {
+  @extend %logo;
+  @extend %centering-inner;
+  @include remove-element-below(445px);
+  margin-right: 20px;
+  display: inline-block;
+  background-size: 100%;
+}
+
+.topbar-search {
+  @extend %centering-inner;
+  @include remove-element-below(900px);
+
+  .topbar-search-field {
+    background: image-url("base/topbar/search_icon.png") 8px center no-repeat #fff;
+    padding-left: 30px;
+    width: 180px;
+  }
+}
+
+.topbar-menu {
+  float: right;
+  height: 100%;
+}
+
+.topbar-menu-item {
+  float: left;
+  font-weight: bold;
+  height: 100%;
+}
+
+.topbar-menu-link {
+  @extend %centering;
+  padding: 0 15px;
+  height: 100%;
+  display: block;
+}
+
+
+.topbar-divider {
+  border-right: 1px lightgrey solid;
+  width: 0;
+  height: $topbarHeight;
+  float: left;
+}
+
+.topbar-in-your-browser {
+  @include remove-element-below(700px);
+}
+
+.topbar-on-your-site {
+  @include remove-element-below(600px);
+}
+
+.topbar-profile-link {
+  @extend %centering-y;
+  @extend %ellipsis-inline-block;
+  max-width: 100px;
+  height: $topbarHeight;
+
+  @include from-width(600px) {
+    max-width: 220px;
+  }
+}
+
+.topbar-profile-image {
+  @extend %centering-inner;
+  border-radius: 2px;
+  margin-right: 10px;
+}
+
+.topbar-menu-bookmarklet::after {
+  content: 'Bookmarklet';
+  padding: 0 0 0 3px;
+}
+
+.topbar-connect {
+  @extend %centering;
+  height: 100%;
+  padding-left: 15px;
+}
+
+.topbar-connect-label {
+  margin-right: 10px;
+}

@@ -1,0 +1,22 @@
+<% content_for :account_popup_content do %>
+  <h1 class="accounts-popup-heading">Create your <%= t(:app_name)%> account</h1>
+
+  <%= form_for(@user, as: :user, url: social_accounts_new_path) do |f| %>
+    <div class="accounts-popup-form">
+      <table class="accounts-popup-fields-container">
+        <tr>
+          <td><%= f.label :email, "Email address" %></td>
+          <td><%= f.text_field :email %></td>
+        </tr>
+        <tr>
+          <td colspan="2"><%= possible_error_for_field(@user, :email) %></td>
+        </tr>
+      </table>
+      <p>We need your email address to keep you informed about the conversations you're participating in. By creating an account you accept our <%= link_to 'terms', terms_of_service_path, target: '_blank' %>.</p>
+    </div>
+
+    <div class="accounts-popup-button-wrapper">
+      <button type="submit" class="button-confirm accounts-popup-button" data-disable-with="Submitting...">Continue</button>
+    </div>
+  <% end %>
+<% end %>

@@ -1,0 +1,23 @@
+[
+  {
+    "the_class": "User",
+    "the_object": {
+      "id": "<id>",
+      "name": "John1 Doe1",
+      "username": "baron",
+      "avatar_url": "https://secure.gravatar.com/avatar/bdcf52014be3eaaf4c83248bc7229900?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    }
+  },
+  {
+    "the_class": "Annotation",
+    "the_object": {
+      "id": "<id>",
+      "site_url": "http://example.org/1.html",
+      "displaystring": "Baron",
+      "created_at": "<created_at>",
+      "site_title": "Fact title 1",
+      "html_content": "Baron"
+    }
+  }
+]

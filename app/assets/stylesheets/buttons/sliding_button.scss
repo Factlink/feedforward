@@ -1,0 +1,97 @@
+$slideTime: 0.3s;
+
+.sliding-button {
+  position: relative;
+  display: inline-block;
+  height: $baseButtonHeight;
+  line-height: $baseButtonHeight;
+  vertical-align: baseline;
+  cursor: pointer;
+  color: $linkColor;
+}
+
+.sliding-button .icon-trash { margin-left: 0; }
+
+.sliding-button-container-outer {
+  position: absolute;
+  right: 100%;
+  top: 0;
+  height: $baseButtonHeight;
+  line-height: $baseButtonHeight;
+  overflow: hidden;
+  visibility: hidden;
+  transition: visibility 0 $slideTime;
+  margin: 0 0.2em;
+}
+
+.sliding-button-open .sliding-button-container-outer {
+  visibility: visible;
+  transition: visibility 0 0;
+}
+
+.sliding-button-container-inner {
+  position: relative;
+  right: -100%;
+  opacity: 0;
+  transition: right $slideTime, opacity $slideTime;
+  white-space: nowrap;
+  padding-right: 1px; // fixes one-off pixel bug
+}
+
+.sliding-button-open .sliding-button-container-inner {
+  right: 0;
+  opacity: 1;
+}
+
+.sliding-button-right {
+
+  .sliding-button-container-outer {
+    right: auto;
+    left: 100%;
+  }
+
+  .sliding-button-container-inner {
+    right: auto;
+    left: -100%;
+    transition: left $slideTime, opacity $slideTime;
+  }
+
+  &.sliding-button-open .sliding-button-container-inner {
+    right: auto;
+    left: 0;
+  }
+}
+
+.sliding-delete-inner-button {
+  @extend .button-danger;
+  @extend %button-with-right-arrow;
+  @include button-with-arrow-color($buttonDangerBackground);
+  // hack because .button is too specific.. :-(
+  vertical-align: top !important;
+
+}
+
+%sliding-share-button {
+  @extend .button-connect-small;
+
+  vertical-align: top;
+
+  // Workaround to fix flickering frame in Chrome
+  // (See: http://stackoverflow.com/questions/5814101/css3-transition-transform-translate3d-causes-severe-flicker-on-first-or-last-fr)
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.sliding-twitter-button {
+  @extend .button-twitter;
+
+  @extend %sliding-share-button;
+}
+
+.sliding-facebook-button {
+  @extend .button-facebook;
+  @extend %sliding-share-button;
+
+  @extend %button-with-left-arrow;
+  @include button-with-arrow-color($facebookBlue);
+}

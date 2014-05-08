@@ -1,0 +1,221 @@
+$buttonBgTransition: all 0.3s ease;
+
+@mixin button-height ($button-height) {
+  height: $button-height;
+  line-height: $button-height - 1px;
+}
+
+%button-active-base {
+  transition: none;
+  padding-top: 1px;
+  padding-bottom: 0;
+
+  &:before {
+    border-bottom-width: 1px;
+  }
+}
+
+%button-base {
+  position: relative;
+  display: inline-block;
+  z-index: 0;
+  vertical-align: middle;
+  font-family: inherit; //so that browsers don't use a system font for buttons.
+  font-size: 13px;
+  @include button-height($largeButtonHeight);
+
+  color: white;
+  border-radius: $baseBorderRadius;
+  border: none;
+  padding: 0 $largeButtonPadding 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+
+  &:before {
+    //this is an overlay for fading the background color.
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-bottom-width: 2px;
+
+    border-radius: inherit;
+    z-index: -1;
+    background-color: transparent;
+    transition: $buttonBgTransition;
+  }
+
+  &:hover {
+    color: white;
+  }
+
+  &:focus:before {
+    border-color: rgba(0, 0, 0, 0.45);
+  }
+
+  &:hover:not(:disabled):before, &:active:before {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    color: $mutedFontColor;
+    cursor: not-allowed;
+  }
+
+  &:active {
+    @extend %button-active-base;
+  }
+
+  &:focus,&:active {
+    outline: none; //prevents ugly webkit active state
+    box-shadow: 0 0 0.5em rgba(black, 0.5);
+  }
+}
+
+$arrowSize: 5px;
+
+%button-with-arrow-base {
+  &:after {
+    content: '';
+    position: absolute;
+    border: $arrowSize solid;
+    border-color: transparent currentColor;
+    margin: -$arrowSize -1px;
+
+    top: 50%;
+    transition: $buttonBgTransition;
+  }
+}
+
+%button-with-right-arrow {
+  @extend %button-with-arrow-base;
+  margin-right: $arrowSize;
+
+  &:after {
+    left: 100%;
+    border-right-style: none;
+  }
+}
+
+%button-with-left-arrow {
+  @extend %button-with-arrow-base;
+  margin-left: $arrowSize;
+
+  &:after {
+    right: 100%;
+    border-left-style: none;
+  }
+}
+
+
+@mixin button-with-arrow-color($arrow-color) {
+  &:after {
+    color: $arrow-color;
+  }
+
+  &:hover:not(:disabled):after, &:active:after {
+    color: mix(black, $arrow-color, 10%);
+  }
+}
+
+.button-arrow-left {
+  @extend %button-with-left-arrow;
+  @include button-with-arrow-color($facebookBlue);
+}
+
+
+.button {
+  @extend %button-base;
+  background-color: $buttonBackground;
+  color: $linkColor;
+
+  &:hover {
+    color: $linkColor;
+  }
+}
+
+.button-confirm {
+  @extend %button-base;
+  background-color: $buttonConfirmBackground;
+}
+
+.button-success {
+  @extend %button-base;
+  background-color: $green;
+
+  &:disabled {
+    color: black;
+    background-color: mix($green, white);
+  }
+}
+
+.button-danger {
+  @extend %button-base;
+  background-color: $buttonDangerBackground;
+}
+
+.button-twitter {
+  @extend %button-base;
+  background-color: $twitterCyan;
+}
+
+.button-facebook {
+  @extend %button-base;
+  background-color: $facebookBlue;
+}
+
+.button-small {
+  font-size: 12px;
+  @include button-height($baseButtonHeight);
+  padding: 0 $baseButtonPadding;
+}
+
+.button-connect {
+  height: $smallConnectButtonSize;
+  width: $smallConnectButtonSize;
+  padding: 0;
+  text-align: center;
+  font-size: 16px;
+  vertical-align: middle;
+
+  .icon-twitter, .icon-facebook {
+    vertical-align: sub;
+    -webkit-font-smoothing: antialiased; // OS X makes fonts bolder than normal. This looks weird with those icons.
+  }
+}
+
+.button-connect-small {
+  @extend .button-connect;
+
+  font-size: 12px;
+  width: $baseButtonHeight;
+  height: $baseButtonHeight;
+  line-height: $baseButtonHeight - 4px;
+}
+
+.button-huge {
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+}
+
+.button-action-checked {
+  color: $greenLabelColor;
+
+  &:hover {
+    color: $greenLabelColor;
+  }
+}
+
+.button-interesting {
+  @extend .button;
+
+  background-color: white;
+  padding: 0 10px 0 0;
+  margin: 10px 0 0;
+}
