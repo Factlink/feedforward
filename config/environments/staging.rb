@@ -66,7 +66,7 @@ FactlinkUI::Application.configure do
   config.active_support.deprecation = :notify
 
   # Redirect all traffic to https equivalent. Add 'secure' flag to cookie.
-  config.force_ssl = true
+  config.force_ssl = false
 end
 
 require File.expand_path("./config/email_configuration")
