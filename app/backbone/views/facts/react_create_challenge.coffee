@@ -6,19 +6,13 @@ window.ReactCreateChallenge = React.createClass
       site_url: 'kennisland_challenge'
       group_id: @refs.challengeGroupId.state.value # they should implement a getValue
 
-    newActivity =
-      new Activity
-        action: 'created_fact'
-        fact: fact.toJSON()
-        user: currentSession.user().toJSON()
-
-    @props.onActivityCreated newActivity
-
     fact.save {},
       success: =>
         @refs.challengeDescription.updateHtml ''
         @refs.challengeName.getDOMNode().value = ''
         Factlink.notificationCenter.success 'Challenge created!'
+
+        Backbone.history.navigate fact.fact_show_link().href, true
       error: ->
         Factlink.notificationCenter.error 'Could not create challenge, please try again.'
 
