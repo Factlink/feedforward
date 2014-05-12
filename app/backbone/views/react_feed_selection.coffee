@@ -9,9 +9,6 @@ window.ReactFeedSelection = React.createClass
   _toggle_create_challenge: ->
     @setState show_create_challenge: !@state.show_create_challenge
 
-  addActivity: (activity) ->
-    @_currentFeed().unshift activity
-
   _currentFeed: ->
     if @state.feedGroupId == 'global'
       @_globalActivities ?= new DiscussionsFeedActivities
@@ -50,7 +47,6 @@ window.ReactFeedSelection = React.createClass
 
           if @state.show_create_challenge
             ReactCreateChallenge
-              onActivityCreated: @addActivity
               groupId: @state.feedGroupId
               key: 'create_challenge_' + @state.feedGroupId
         ]
