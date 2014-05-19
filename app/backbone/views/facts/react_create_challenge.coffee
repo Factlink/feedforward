@@ -20,7 +20,7 @@ window.ReactChallengeForm = React.createClass
             _option [value: group.id],
               group.groupname
       _button ["button-confirm", onClick: @_onClick],
-        "Create challenge"
+        "Save challenge"
 
   _onClick: ->
     @props.onSubmit
