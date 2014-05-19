@@ -13,9 +13,7 @@ module Backend
     end
 
     def global_discussions(newest_timestamp:, count:)
-      relation = Activity.where(action: 'created_fact')
-
-      feed relation: relation, newest_timestamp: newest_timestamp, count: count
+      group(group_id: nil, newest_timestamp: newest_timestamp, count: count)
     end
 
     def users(newest_timestamp:, username: username)
@@ -39,15 +37,15 @@ module Backend
       feed relation: relation, newest_timestamp: newest_timestamp
     end
 
-    def group(newest_timestamp:, group_id:)
+    def group(newest_timestamp:, group_id:, count: 20)
       relation = Activity
         .joins("
           INNER JOIN fact_data ON fact_data.id = activities.subject_id AND activities.subject_type = 'FactData'
         ")
-        .where('fact_data.group_id = ?', group_id)
+        .where('fact_data.group_id' => group_id)
         .where(action: 'created_fact')
 
-      feed relation: relation, newest_timestamp: newest_timestamp
+      feed relation: relation, newest_timestamp: newest_timestamp, count: count
     end
 
     private def feed(relation:, newest_timestamp:, count: 20)
