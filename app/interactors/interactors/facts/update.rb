@@ -12,7 +12,8 @@ module Interactors
       attribute :pavlov_options, Hash
 
       def authorized?
-        FactData.where(fact_id: id).first.created_by_id == pavlov_options[:current_user].id
+        pavlov_options[:current_user].admin? ||
+          FactData.where(fact_id: id).first.created_by_id == pavlov_options[:current_user].id
       end
 
       private

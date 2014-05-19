@@ -39,19 +39,19 @@ window.ReactTopAnnotation = React.createBackboneClass
         _div ["loading-indicator-centered"],
           ReactLoadingIndicator()
 
-      if @model().can_edit()
-        _button [
-          'button'
-          onClick: => @setState editing: !@state.editing
-        ],
-          'Edit challenge'
+      if @model().can_edit() || currentSession.user().get('admin')
+        _div [],
+          _button [
+            'button'
+            onClick: => @setState editing: !@state.editing
+          ],
+            'Edit challenge'
 
-      if @model().can_edit()
-        _button [
-          'button-success'
-          onClick: @_publish
-        ],
-          'Publish challenge'
+          _button [
+            'button-success'
+            onClick: @_publish
+          ],
+            'Publish challenge'
 
       if @state.editing
         ReactChallengeForm
