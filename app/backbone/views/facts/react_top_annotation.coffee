@@ -46,6 +46,13 @@ window.ReactTopAnnotation = React.createBackboneClass
         ],
           'Edit challenge'
 
+      if @model().can_edit()
+        _button [
+          'button-success'
+          onClick: @_publish
+        ],
+          'Publish challenge'
+
       if @state.editing
         ReactChallengeForm
           groupId: @model().get('group_id')
@@ -62,4 +69,14 @@ window.ReactTopAnnotation = React.createBackboneClass
         Factlink.notificationCenter.success 'Challenge edited!'
       error: ->
         Factlink.notificationCenter.error 'Could not update challenge, please try again.'
+
+  _publish: ->
+    if confirm('Do you want to make this challenge public?')
+      @model().save {group_id: null},
+        success: =>
+          Factlink.notificationCenter.success 'Challenge published!'
+
+          Backbone.history.navigate '/feed', true
+        error: ->
+          Factlink.notificationCenter.error 'Could not publish challenge, please try again.'
 
