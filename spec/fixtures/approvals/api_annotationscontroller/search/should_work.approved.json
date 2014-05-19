@@ -5,6 +5,14 @@
     "displaystring": "oil dobedoo",
     "created_at": "<created_at>",
     "site_title": "title",
+    "created_by": {
+      "id": "<id>",
+      "name": "John3 Doe3",
+      "username": "johndoe3",
+      "avatar_url": "https://secure.gravatar.com/avatar/0c0b78bf3bb3107091bdb93c94ba73a3?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    },
+    "group_id": null,
     "html_content": "oil dobedoo"
   },
   {
@@ -13,6 +21,14 @@
     "displaystring": "you got oil mister?",
     "created_at": "<created_at>",
     "site_title": "title",
+    "created_by": {
+      "id": "<id>",
+      "name": "John3 Doe3",
+      "username": "johndoe3",
+      "avatar_url": "https://secure.gravatar.com/avatar/0c0b78bf3bb3107091bdb93c94ba73a3?size=<SIZE>&rating=PG&default=mm",
+      "deleted": false
+    },
+    "group_id": null,
     "html_content": "you got oil mister?"
   }
 ]

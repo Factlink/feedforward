@@ -50,6 +50,8 @@
       "displaystring": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla",
       "created_at": "<created_at>",
       "site_title": "Fact title 1",
+      "created_by": null,
+      "group_id": null,
       "html_content": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
     },
     "comment": {
@@ -92,6 +94,8 @@
       "displaystring": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla",
       "created_at": "<created_at>",
       "site_title": "Fact title 1",
+      "created_by": null,
+      "group_id": null,
       "html_content": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
     },
     "comment": {

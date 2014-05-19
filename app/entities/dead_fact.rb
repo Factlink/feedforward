@@ -4,6 +4,8 @@ DeadFact = StrictStruct.new(
   :displaystring,
   :created_at,
   :site_title,
+  :created_by,
+  :group_id,
 ) do
 
   def to_s

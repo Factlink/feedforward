@@ -26,3 +26,7 @@ class window.Fact extends Backbone.Model
     return callback() unless @isNew()
 
     @save {}, success: callback
+
+  _creator: -> new User(@get('created_by'))
+
+  can_edit: -> currentSession.isCurrentUser(@_creator())

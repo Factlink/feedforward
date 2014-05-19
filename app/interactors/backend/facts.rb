@@ -39,6 +39,21 @@ module Backend
       dead(fact_data)
     end
 
+    def update(displaystring:, site_title:, site_url:, updated_at:, fact_id:, group_id: nil)
+      fact_data = FactData.where(fact_id: fact_id).first
+      raise ActiveRecord::RecordNotFound, ["FactData", {fact_id: fact_id}] unless fact_data
+
+      fact_data.displaystring = displaystring
+      fact_data.title = site_title
+      fact_data.site_url = UrlNormalizer.normalize(site_url)
+      fact_data.fact_id = fact_id
+      fact_data.group_id = group_id
+      fact_data.updated_at = updated_at
+      fact_data.save!
+
+      dead(fact_data)
+    end
+
     def remove_interesting(fact_id:, user_id:)
       fact_data_id = FactData.where(fact_id: fact_id).first.id
 
@@ -68,7 +83,9 @@ module Backend
                    site_url: fact_data.site_url,
                    displaystring: fact_data.displaystring,
                    created_at: fact_data.created_at,
-                   site_title: fact_data.title
+                   site_title: fact_data.title,
+                   created_by: Backend::Users.by_ids(user_ids: fact_data.created_by_id).first,
+                   group_id: fact_data.group_id
     end
   end
 end
