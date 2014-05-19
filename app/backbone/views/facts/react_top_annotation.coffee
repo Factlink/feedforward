@@ -26,6 +26,10 @@ ReactCollapsedText = React.createClass
 
 window.ReactTopAnnotation = React.createBackboneClass
   displayName: 'ReactTopAnnotation'
+  mixins: [UpdateOnSignInOrOutMixin]
+
+  getInitialState: ->
+    editing: false
 
   render: ->
     _div ['top-annotation'],
@@ -34,3 +38,28 @@ window.ReactTopAnnotation = React.createBackboneClass
       else
         _div ["loading-indicator-centered"],
           ReactLoadingIndicator()
+
+      if @model().can_edit()
+        _button [
+          'button'
+          onClick: => @setState editing: !@state.editing
+        ],
+          'Edit challenge'
+
+      if @state.editing
+        ReactChallengeForm
+          groupId: @model().get('group_id')
+          site_title: @model().get('site_title')
+          displaystring: @model().get('displaystring')
+          onSubmit: @_postChallenge
+          ref: 'form'
+
+  _postChallenge: (attributes) ->
+    @model().save attributes,
+      success: =>
+        @refs.form.clear()
+        @setState editing: false
+        Factlink.notificationCenter.success 'Challenge edited!'
+      error: ->
+        Factlink.notificationCenter.error 'Could not update challenge, please try again.'
+

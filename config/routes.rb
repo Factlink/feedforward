@@ -18,6 +18,7 @@ FactlinkUI::Application.routes.draw do
     get '/annotations/search' => 'api/annotations#search' #TODO:evil URL, clashes with get-by-id.
     post '/annotations' => 'api/annotations#create'
     get '/annotations/:id' => 'api/annotations#show'
+    put '/annotations/:id' => 'api/annotations#update'
     post '/groups' => 'api/groups#create'
     get '/groups' => 'api/groups#index'
     put '/users/:username/groups/:group_id' => 'api/groups#add_member'
