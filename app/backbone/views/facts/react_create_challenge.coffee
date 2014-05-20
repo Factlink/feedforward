@@ -9,7 +9,7 @@ window.ReactChallengeForm = React.createClass
       ]
       ReactCkeditorArea
         ref: 'challengeDescription'
-        placeholder: 'Describe your challenge'
+        placeholder: 'Describe your challenge, include where the challenge is, and who is involved!'
         defaultValue: @props.displaystring
         storageKey: "createChallengeDescription_#{@props.groupId}" unless @props.displaystring
       _label ['challenge-group-input-label'],
