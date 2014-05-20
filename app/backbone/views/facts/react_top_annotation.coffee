@@ -47,11 +47,12 @@ window.ReactTopAnnotation = React.createBackboneClass
           ],
             'Edit challenge'
 
-          _button [
-            'button-success'
-            onClick: @_publish
-          ],
-            'Publish challenge'
+          if @model().get('group_id')
+            _button [
+              'button-success'
+              onClick: @_publish
+            ],
+              'Publish challenge'
 
       if @state.editing
         ReactChallengeForm
