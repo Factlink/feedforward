@@ -66,7 +66,12 @@ window.ReactComment = React.createBackboneClass
   render: ->
     relevant = @props.tally.relevance() >= 0
 
-    _div ["comment-container", "spec-evidence-box", "comment-irrelevant" unless relevant],
+    _div [
+      "comment-container"
+      "spec-evidence-box"
+      "comment-irrelevant" unless relevant
+      'anecdote-container' if @model().get('markup_format') == 'anecdote'
+    ],
       if @state.editing
         FormClass =
           if @model().get('markup_format') == 'anecdote'

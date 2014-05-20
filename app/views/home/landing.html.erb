@@ -3,7 +3,11 @@
     <h1 class="header-heading">Your innovation only becomes social when it is shared!</h1>
     <p class="header-tagline">Start sharing your challenges and exchanging feedback to build a better future today.</p>
 
-    <a target="_blank" href="/users/sign_in_or_up" class="button-success button-huge js-accounts-popup-link">Join Feed Forward</a>
+    <% if current_user %>
+      <a href="/feed" rel="backbone" class="button-confirm button-huge">Go to the feed!</a>
+    <% else %>
+      <a target="_blank" href="/users/sign_in_or_up" class="button-success button-huge js-accounts-popup-link">Join Feed Forward</a>
+    <% end %>
   </div>
 <% end %>
 
