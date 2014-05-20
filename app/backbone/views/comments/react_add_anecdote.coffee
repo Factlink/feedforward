@@ -14,13 +14,14 @@ window.ReactAddAnecdote = React.createClass
           success: =>
             @props.comments.fact.getOpinionators().setInterested true
 
-
 window.ReactAnecdoteForm = React.createClass
   displayName: 'ReactAnecdoteForm'
 
-  renderField: (key, label, place_holder) ->
+  renderField: (key, label, place_holder, tooltip) ->
     _div [],
-      _strong [], label
+      _strong [],
+        label
+        ReactTooltipIcon {}, tooltip
       ReactTextArea
         ref: key
         placeholder: place_holder
@@ -31,11 +32,36 @@ window.ReactAnecdoteForm = React.createClass
   render: ->
     _div ['add-anecdote'],
       _p [], 'Do you have an experience to share that might be of value to this challenge? Write your story!'
-      @renderField('introduction', 'Challenge', 'Describe your own challenge, include context and stakeholders')
-      @renderField('insight', 'Exploration of options', 'Describe exploration of options with stakeholders')
-      @renderField('resources', 'Aha!!-Moment', 'Describe your a-ha moment! What got you in action modus?')
-      @renderField('actions', 'Actions', 'Describe the actions you and others took')
-      @renderField('effect', 'Impact and evaluation', 'Evaluate the outcomes for the different stakeholders: how did your actions work out, for whom?')
+      @renderField(
+        'introduction',
+        'Challenge',
+        'Describe your own challenge, include context and stakeholders'
+        'How to describe a challenge? A challenge is a situation in which you experienced a difficulty, a dilemma. You were in need of new perspectives for new actions. Describe the context (e.g. stuck on a rock in the middle of a wild river, cold) but also human context, (with a group of friends), your challenging dilemma (e.g. how to get safe to the riverbank?). Be as short and precise as possible!'
+      )
+      @renderField(
+        'insight',
+        'Exploration of options',
+        'Describe exploration of options with stakeholders',
+        'Explore your options! What was around to support meeting your challenge? e.g one would swim, with a risk to drown, phone in a helicopter, with a risk to get hypothermia.'
+      )
+      @renderField(
+        'resources',
+        'Aha!!-Moment',
+        'Describe your a-ha moment! What got you in action modus?',
+        'What is an a-ha moment? An a-ha moment is a sudden insight, and something or someone provoked or supported you to take action. Who or what brought you to specific actions? e.g. by coincidence someone spotted a rope in the water, I said I would try swing the rope over a tree branch nearby'
+      )
+      @renderField(
+        'actions',
+        'Actions',
+        'Describe the actions you and others took',
+        'What are actions? Actions are things you or others did to move forward. Describe a ﬂow of actions of what happened, what did you do, what did other people do? e.g. swung the rope to the tree branch, doubled the rope, jumped. Almost drowned, others were cheering at me.'
+      )
+      @renderField(
+        'effect',
+        'Impact and evaluation',
+        'Evaluate the outcomes for the different stakeholders: how did your actions work out, for whom?',
+        'What is impact and evaluation? Give an overview of what was achieved and for whom. e.g. using and swinging the rope got me safe on the dry bank, but the rope broke and left the others on the rock. I phoned in helicopter, everyone got saved but one. In the end I think could have better ...'
+      )
       _button ['button-confirm button-small add-anecdote-post-button'
         onClick: => @refs.signinPopover.submit(=> @_submit())
       ],

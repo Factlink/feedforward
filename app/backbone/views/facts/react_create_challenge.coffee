@@ -1,15 +1,19 @@
 window.ReactChallengeForm = React.createClass
   render: ->
     _div [],
+      _strong [],
+        'Title'
+        ReactTooltipIcon {}, 'What is a good title? A good title covers the topic of your challenge (what)? and your target group (for whom?). E.g. How to get my colleagues enthusiastic? Or shorter: Enthusing my colleagues.'
       _input [
         "challenge-name-input"
         ref: 'challengeName'
-        placeholder: 'Title'
         defaultValue: @props.site_title
       ]
+      _strong [],
+        'Description'
+        ReactTooltipIcon {attachment: 'top'}, 'How to describe a challenge? A challenge is a situation in which you experience a difficulty, a dilemma. You are in need of new perspectives for new actions. Describe the context (e.g. physical context like a school, but also human context, stakeholders, like colleagues), your challenging dilemma (e.g. my colleagues have no time) and your possible resources or ideas on how to go forward (e.g. maybe I could use..or do..). End with a question (e.g. how to go about?). Be as short and precise as possible!'
       ReactCkeditorArea
         ref: 'challengeDescription'
-        placeholder: 'Describe your challenge, include where the challenge is, and who is involved!'
         defaultValue: @props.displaystring
         storageKey: "createChallengeDescription_#{@props.groupId}" unless @props.displaystring
       _label ['challenge-group-input-label'],

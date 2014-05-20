@@ -38,7 +38,7 @@ window.ReactPopover = React.createBackboneClass
     optimizations:
       moveElement: false # Warning: always moves to <body> anyway!
     constraints: [
-      to: 'scrollParent'
+      to: 'body'
       attachment: 'together'
       pin: true
     ]
