@@ -2,6 +2,7 @@
   position: relative;
   visibility: visible;
   display: inline-block;
+  max-width: 350px;
 
   // force new stacking context for arrow shadow
   z-index: 1;
@@ -13,6 +14,7 @@
   background: white;
   border-radius: $baseBorderRadius;
   box-shadow: $blockBorder, 0 $PopoverShadowBottomSize 5px $PopoverShadowBottomColor;
+  padding: 20px;
 
   // some basic resets
   line-height: $baseLineHeight;
