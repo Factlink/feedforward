@@ -85,7 +85,7 @@ window.ReactTopbar = React.createClass
             _li ['topbar-divider']
             ReactTopbarMenu className: 'topbar-menu-item', linkClass: 'topbar-menu-link'
 
-          _a ['topbar-logo', href: '/feed', rel: 'backbone']
+          _a ['topbar-logo', href: '/']
 
           ReactTopbarSearch model: Factlink.topbarSearchModel
       else
