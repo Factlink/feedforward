@@ -2,7 +2,7 @@
   text-align: left;
 
   @include from-width(500px) {
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -32,6 +32,7 @@
     min-width: 350px;
     width: calc(100% - 200px - 0.5em);
     width: -webkit-calc(100% - 200px - 0.5em);
+    padding-right: 40px;
   }
 }
 
