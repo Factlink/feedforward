@@ -60,4 +60,4 @@ window.ReactCkeditorArea = React.createClass
     _div
       contentEditable: true
       className: "ckeditor_contenteditable_area",
-      placeholder: @props.placeholder || 'placeholder placeholder'
+      placeholder: @props.placeholder
