@@ -11,11 +11,20 @@ window.ReactAddToGroupCheckbox = React.createClass
        @props.users_groups.remove group
        Factlink.notificationCenter.error 'User could not be added to group, please try again.'
 
+  _removeFromGroup: ->
+    @props.users_groups.get(@props.group).destroy
+      error: =>
+        @props.users_groups.add @props.group.attributes
+        Factlink.notificationCenter.error 'User could not be removed from group, please try again.'
+
   render: ->
     in_group = @props.users_groups.some((group) => group.id == @props.group.id)
     _label [],
       if in_group
-        _input [type: "checkbox", checked: true, disabled: true]
+        if currentSession.user().get 'admin'
+          _input [type: "checkbox", checked: true, onChange: @_removeFromGroup]
+        else
+          _input [type: "checkbox", checked: true, disabled: true]
       else
         _input [type: "checkbox", checked: false, onChange: @_addToGroup]
       @props.group.get('groupname')

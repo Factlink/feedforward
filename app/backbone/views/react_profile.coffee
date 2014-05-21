@@ -37,7 +37,11 @@ window.ReactProfile = React.createBackboneClass
               _div [],
                 ReactFollowUserButton user: @model()
                 ReactAddToGroupCheckboxes
-                  groups: currentSession.user().groups()
+                  groups:
+                    if currentSession.user().get('admin')
+                      @_allGroups()
+                    else
+                      currentSession.user().groups()
                   user: @model()
         _div ['profile-box-item'],
           _h1 [],
@@ -61,6 +65,11 @@ window.ReactProfile = React.createBackboneClass
       _div ['profile-feed-activities'],
         ReactFeedActivitiesAutoLoading
           model: @model().feed_activities()
+
+  _allGroups: ->
+    g = new AllGroups()
+    g.fetch()
+    g
 
   _deletedUser: ->
     _div [],
