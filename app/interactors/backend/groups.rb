@@ -16,6 +16,12 @@ module Backend
       group.save!
     end
 
+    def remove_member(username:, group_id:)
+      user = Users.user_by_username username: username
+      group = Group.find_by! id: group_id
+      group.users.delete user
+    end
+
     private
 
     def dead(group)
