@@ -30,18 +30,15 @@
 }
 
 .header-heading {
-  font-weight: 400;
   font-size: 30px;
   font-family: $sansFontFamily;
-  color: $font-header-heading-color;
-  text-shadow: none;
+  color: white;
 }
 
 .header-tagline {
   margin-top: 25px;
   margin-bottom: 30px;
-  color: $font-header-tagline-color;
+  color: white;
   font-weight: 100;
   font-size: 18px;
-  text-shadow: 0 1px 0 $font-header-tagline-shadow-color;
 }
