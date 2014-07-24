@@ -6,13 +6,13 @@ class FormattedAnecdoteContent
   end
 
   def html
-    (content_tag(:p, content_tag(:strong, 'Introduction')) +
+    (content_tag(:p, content_tag(:strong, 'Challenge')) +
       content_tag(:p, @anecdote['introduction']) +
-      content_tag(:p, content_tag(:strong, 'Sudden insight')) +
+      content_tag(:p, content_tag(:strong, 'Exploration of options')) +
       content_tag(:p, @anecdote['insight']) +
       content_tag(:p, content_tag(:strong, 'Actions')) +
       content_tag(:p, @anecdote['actions']) +
-      content_tag(:p, content_tag(:strong, 'Effect + evaluation')) +
+      content_tag(:p, content_tag(:strong, 'Impact and evaluation')) +
       content_tag(:p, @anecdote['effect'])).html_safe
   end
 end
