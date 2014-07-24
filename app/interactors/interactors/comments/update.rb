@@ -16,6 +16,8 @@ module Interactors
       end
 
       def authorized?
+        return true if pavlov_options[:current_user].admin?
+
         comment = Backend::Comments.by_ids(ids: comment_id,
           current_user_id: pavlov_options[:current_user].id).first
 

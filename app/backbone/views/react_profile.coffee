@@ -58,7 +58,13 @@ window.ReactProfile = React.createBackboneClass
                 'Location:'
               _span ['profile-information-field'],
                 @model().get('location')
-          if !@model().get('biography') && !@model().get('location')
+          if @model().get('email')
+            _div ['profile-bio-item'],
+              _span ['profile-information-label'],
+                'Email:'
+              _span ['profile-information-field'],
+                @model().get('email')
+          if !@model().get('biography') && !@model().get('location') && !@model().get('email')
             _div ['profile-bio-item profile-bio-item-empty'],
               "#{@model().get('name')} hasn't added their profile information yet."
 

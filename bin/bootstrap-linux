@@ -62,6 +62,7 @@ sudo apt-get -y install \
            cryptsetup \
            gnome-disk-utility \
            npm \
+           libreadline-dev \
            unar # needed for virtualbox
 
 
