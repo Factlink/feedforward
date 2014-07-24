@@ -7,4 +7,6 @@ window.ReactFact = React.createBackboneClass
         _img ['annotation-avatar', src: "https://www.google.com/s2/u/0/favicons?domain=#{fact_url_host}"]
 
       _div ["annotation-balloon"],
-        @model().get('displaystring')
+        _span [
+          dangerouslySetInnerHTML: {__html: @model().get('displaystring')}
+        ]

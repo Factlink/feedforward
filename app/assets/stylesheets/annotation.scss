@@ -29,7 +29,6 @@ $avatarOffset: $avatarSize + 10px;
 
 .annotation-balloon {
   background: $lightYellow;
-  white-space: pre-line;
   word-wrap: break-word;
   max-width: 100%;
   display: inline-block;
@@ -50,6 +49,11 @@ $avatarOffset: $avatarSize + 10px;
     border-left: none;
     border-right-color: $lightYellow;
   }
+}
+
+.annotation-balloon p {
+  margin: 0;
+  padding: 0 0 0.8em;
 }
 
 .annotation-host {
