@@ -20,7 +20,9 @@ class window.Comment extends Backbone.Model
 
   _is_mine: -> currentSession.isCurrentUser(@creator())
   can_edit: -> @_is_mine()
-  can_destroy: -> @_is_mine() && @get('is_deletable')
+  can_destroy: ->
+    (@_is_mine() && @get('is_deletable')) ||
+    currentSession.user().get('admin')
 
   sub_comments: ->
     @_sub_comments ?= new SubComments([], parentModel: @)
