@@ -54,7 +54,11 @@ window.ReactTopbarSearch = React.createBackboneClass
   _onSubmit: (e) ->
     e.preventDefault()
     url = '/search?s=' + encodeURIComponent @model().get('query')
-    Backbone.history.navigate url, true
+
+    if location.pathname == '/'
+      location.href = url
+    else
+      Backbone.history.navigate url, true
 
   _onChange: (e) ->
     @model().set query: e.target.value
