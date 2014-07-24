@@ -45,12 +45,6 @@ window.ReactAnecdoteForm = React.createClass
         'Explore your options! What was around to support meeting your challenge? e.g one would swim, with a risk to drown, phone in a helicopter, with a risk to get hypothermia.'
       )
       @renderField(
-        'resources',
-        'Aha!!-Moment',
-        'Describe your a-ha moment! What got you in action modus?',
-        'What is an a-ha moment? An a-ha moment is a sudden insight, and something or someone provoked or supported you to take action. Who or what brought you to specific actions? e.g. by coincidence someone spotted a rope in the water, I said I would try swing the rope over a tree branch nearby'
-      )
-      @renderField(
         'actions',
         'Actions',
         'Describe the actions you and others took',

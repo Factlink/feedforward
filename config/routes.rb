@@ -19,6 +19,7 @@ FactlinkUI::Application.routes.draw do
     post '/annotations' => 'api/annotations#create'
     get '/annotations/:id' => 'api/annotations#show'
     put '/annotations/:id' => 'api/annotations#update'
+    delete '/annotations/:id' => 'api/annotations#delete'
     post '/groups' => 'api/groups#create'
     get '/groups' => 'api/groups#index'
     put '/users/:username/groups/:group_id' => 'api/groups#add_member'
