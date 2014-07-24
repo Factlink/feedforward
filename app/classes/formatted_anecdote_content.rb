@@ -10,8 +10,6 @@ class FormattedAnecdoteContent
       content_tag(:p, @anecdote['introduction']) +
       content_tag(:p, content_tag(:strong, 'Sudden insight')) +
       content_tag(:p, @anecdote['insight']) +
-      content_tag(:p, content_tag(:strong, 'Resources')) +
-      content_tag(:p, @anecdote['resources']) +
       content_tag(:p, content_tag(:strong, 'Actions')) +
       content_tag(:p, @anecdote['actions']) +
       content_tag(:p, content_tag(:strong, 'Effect + evaluation')) +
