@@ -6,15 +6,9 @@ describe HomeController do
   render_views
 
   describe "GET index" do
-    it "redirects to feed when signed in" do
-      authenticate_user!(user)
+    it "shows frontpage page when not signed in" do
       get :index
-      response.should redirect_to(feed_path)
-    end
-
-    it "shows in-your-browser page when not signed in" do
-      get :index
-      expect(response.body).to match 'Your innovation only becomes social when it is shared!'
+      expect(response.body).to match 'Your innovation only becomes social when we work together!'
     end
   end
 end
