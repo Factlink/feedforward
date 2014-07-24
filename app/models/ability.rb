@@ -57,7 +57,7 @@ class Ability
 
     can :create, SubComment
     can :destroy, SubComment do |sub_comment|
-      sub_comment.created_by_id.to_s == user.id.to_s
+      user.admin? || sub_comment.created_by_id.to_s == user.id.to_s
     end
   end
 
