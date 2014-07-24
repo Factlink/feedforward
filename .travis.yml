@@ -2,7 +2,7 @@ language: ruby
 rvm:
 - 2.1.2
 script:
-- psql -c 'create database factlink_test;' -U postgres
+- psql -c 'create database feedforward_test;' -U postgres
 - bundle exec rake db:setup
 - bundle exec rspec spec --profile
 - bundle exec rake konacha:load_poltergeist konacha:run
