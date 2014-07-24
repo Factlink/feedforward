@@ -3,4 +3,5 @@ class Api::AnnotationsController < ApplicationController
   pavlov_action :create, Interactors::Facts::Create
   pavlov_action :update, Interactors::Facts::Update
   pavlov_action :search, Interactors::Facts::Search
+  pavlov_action :delete, Interactors::Facts::Delete
 end

@@ -54,6 +54,12 @@ window.ReactTopAnnotation = React.createBackboneClass
             ],
               'Publish challenge'
 
+          _button [
+            'button-danger'
+            onClick: @_delete
+          ],
+            'Delete challenge'
+
       if @state.editing
         ReactChallengeForm
           groupId: @model().get('group_id')
@@ -62,7 +68,16 @@ window.ReactTopAnnotation = React.createBackboneClass
           onSubmit: @_postChallenge
           ref: 'form'
 
-  _postChallenge: (attributes) ->
+  _delete: ->
+    if confirm('Are you sure you want to delete this challenge?')
+      @model().destroy
+        success: =>
+          Factlink.notificationCenter.success 'Challenge deleted!'
+          Backbone.history.navigate '/feed', true
+        error: =>
+          Factlink.notificationCenter.error 'Could not remove challenge, please try again.'
+
+  _postChallenge: (attribudtes) ->
     @model().save attributes,
       success: =>
         @refs.form.clear()

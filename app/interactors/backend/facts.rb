@@ -39,6 +39,10 @@ module Backend
       dead(fact_data)
     end
 
+    def destroy!(id:)
+      FactData.find(id).destroy
+    end
+
     def update(displaystring:, site_title:, site_url:, updated_at:, fact_id:, group_id: nil)
       fact_data = FactData.where(fact_id: fact_id).first
       raise ActiveRecord::RecordNotFound, ["FactData", {fact_id: fact_id}] unless fact_data
