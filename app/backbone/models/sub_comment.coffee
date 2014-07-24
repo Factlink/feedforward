@@ -5,6 +5,7 @@ class window.SubComment extends Backbone.Model
 
   can_destroy: ->
     return false if @isNew()
+    currentSession.user().get('admin') ||
     currentSession.isCurrentUser @creator()
 
   validate: (attributes) ->
