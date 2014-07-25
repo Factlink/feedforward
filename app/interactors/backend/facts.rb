@@ -9,6 +9,13 @@ module Backend
       dead(fact_data)
     end
 
+    def get_by_id(id:)
+      fact_data = FactData.find(id)
+      raise ActiveRecord::RecordNotFound, ["FactData", {id: id}] unless fact_data
+
+      dead(fact_data)
+    end
+
     # TODO: only use fact_id!
     def get_by_fact_data_id(fact_data_id:)
       get(fact_id: FactData.find(fact_data_id).fact_id)
