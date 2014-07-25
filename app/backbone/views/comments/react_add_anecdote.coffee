@@ -67,12 +67,10 @@ window.ReactAnecdoteForm = React.createClass
     @props.onSubmit? JSON.stringify
       introduction: @refs.introduction.getText()
       insight: @refs.insight.getText()
-      resources: @refs.resources.getText()
       actions: @refs.actions.getText()
       effect: @refs.effect.getText()
 
     @refs.introduction.updateText ''
     @refs.insight.updateText ''
-    @refs.resources.updateText ''
     @refs.actions.updateText ''
     @refs.effect.updateText ''
