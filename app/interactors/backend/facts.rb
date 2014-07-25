@@ -39,8 +39,8 @@ module Backend
       dead(fact_data)
     end
 
-    def destroy!(id:)
-      FactData.find(id).destroy
+    def destroy!(fact_id:)
+      FactData.find_by(fact_id: fact_id).destroy
     end
 
     def update(displaystring:, site_title:, site_url:, updated_at:, fact_id:, group_id: nil)
