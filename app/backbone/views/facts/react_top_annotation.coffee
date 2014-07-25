@@ -77,7 +77,7 @@ window.ReactTopAnnotation = React.createBackboneClass
         error: =>
           Factlink.notificationCenter.error 'Could not remove challenge, please try again.'
 
-  _postChallenge: (attribudtes) ->
+  _postChallenge: (attributes) ->
     @model().save attributes,
       success: =>
         @refs.form.clear()
