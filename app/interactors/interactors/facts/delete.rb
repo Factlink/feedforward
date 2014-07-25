@@ -14,7 +14,7 @@ module Interactors
       private
 
       def execute
-        Backend::Facts.destroy!(id: id)
+        Backend::Facts.destroy!(fact_id: id)
       end
 
       def validate
