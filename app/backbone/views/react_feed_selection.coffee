@@ -91,20 +91,21 @@ window.ReactFeedSelection = React.createClass
               (if !@state.show_create_challenge then "Create challenge" else "Cancel")
 
             _div ['feed-group-controls'],
-              _span [],
-                'Group controls:'
               _a [
                 onClick: => @setState createGroup: @_createGroup()
               ],
-                'New'
+                'New group'
 
               if @state.feedGroupId != 'global'
                 [
+                  _span [],
+                    ' - '
                   _a [
                     onClick: => @setState createGroup: @_createGroup @state.feedGroupId
                   ],
-                    'Edit'
-
+                    'Edit group'
+                  _span [],
+                    ' - '
                   _a [
                     onClick: =>
                       group = @props.groups.get(@state.feedGroupId)
@@ -114,7 +115,7 @@ window.ReactFeedSelection = React.createClass
                           @setState feedGroupId: 'global'
                         error: => Factlink.notificationCenter.error 'Error deleting Group'
                   ],
-                    'Destroy'
+                    'Destroy group'
                 ]
 
           if @state.show_create_challenge
