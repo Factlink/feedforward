@@ -5,7 +5,8 @@ showComponent = (component)->
 class FactlinkRouter extends Backbone.Router
   routes:
     'feed': ->
-      showComponent ReactFeedSelection()
+      showComponent ReactFeedSelection groups: currentSession.user().groups()
+
 
     'search': 'search' # must be named
 
