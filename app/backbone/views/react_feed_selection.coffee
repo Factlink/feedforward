@@ -2,7 +2,7 @@ window.ReactFeedSelection = React.createClass
   displayName: 'ReactFeedSelection'
   mixins: [
     UpdateOnSignInOrOutMixin,
-    React.BackboneMixin('groups')
+    React.BackboneMixin('groups', 'add remove reset sort change')
   ]
 
   getInitialState: ->
