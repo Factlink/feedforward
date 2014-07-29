@@ -120,6 +120,7 @@ window.ReactFeedSelection = React.createClass
 
           if @state.show_create_challenge
             ReactCreateChallenge
+              groups: @props.groups
               groupId: @state.feedGroupId unless @state.feedGroupId == 'global'
               key: 'create_challenge_' + @state.feedGroupId
         ]
