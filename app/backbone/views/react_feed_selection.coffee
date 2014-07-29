@@ -20,23 +20,32 @@ window.ReactFeedSelection = React.createClass
       @_globalActivities ?= {}
       @_globalActivities[@state.feedGroupId] ?= new GroupActivities [], group_id: @state.feedGroupId
 
-  _createGroup: ({id: null}) ->
+  _createGroup: (id = null) ->
     if id?
-      # maybe use clone? or just the Group with the collection set
-      # the associated just should'nt update when editing
-      group = new Group @props.groups.get(id).attributes
+      new Group @props.groups.get(id).attributes
     else
-      group = new Group()
-    group
+      new Group members: [ currentSession.user().get('username') ]
 
   _saveGroup: (group) ->
-    group.save {}
+    isNew = group.isNew()
+
+    group.save {},
       success: =>
-        Factlink.notificationCenter.success 'Group created!'
-        # maybe always merge: true? because after saving isNew is always false?
-        @props.groups.add group, merge: group.isNew
-        @setState createGroup: null
-      error => Factlink.notificationCenter.error 'Error creating Group'
+        if isNew
+          Factlink.notificationCenter.success 'Group created!'
+        else
+          Factlink.notificationCenter.success 'Group updated!'
+
+        @setState
+          createGroup: null,
+          feedGroupId: group.id
+        @props.groups.add group, merge: true
+
+      error: =>
+        if isNew
+          Factlink.notificationCenter.error 'Error creating Group'
+        else
+          Factlink.notificationCenter.error 'Error updating Group'
 
   _groupButtons: ->
     return [] unless currentSession.signedIn()
@@ -50,7 +59,7 @@ window.ReactFeedSelection = React.createClass
           feedGroupId: group.id,
           show_create_challenge: false,
           createGroup: null
-        group.groupname
+        group.get 'groupname'
 
   render: ->
     _div [],
@@ -59,7 +68,6 @@ window.ReactFeedSelection = React.createClass
           name: 'FeedChoice'
           value:'global'
           checked: @state.feedGroupId == 'global'
-          # extract method?
           onChange: => @setState
             feedGroupId: 'global',
             show_create_challenge: false,
@@ -68,34 +76,41 @@ window.ReactFeedSelection = React.createClass
 
         @_groupButtons()...
 
-        # authorization?
-        _button [
-          'button-success',
-          onClick: => @setState createGroup: @_createGroup()
-        ],
-          'New'
+        if currentSession.signedIn()
+          _button [
+            'button-success',
+            onClick: => @setState createGroup: @_createGroup()
+          ],
+            'New'
 
-        # only when not public?
-        _button [
-          'button-success',
-          onClick: => @setState createGroup: @_createGroup @state.feedGroupId
-        ],
-          'Edit current group'
+        if currentSession.signedIn() && @state.feedGroupId != 'global'
+          [
+            _button [
+              'button-success',
+              onClick: => @setState createGroup: @_createGroup @state.feedGroupId
+            ],
+              'Edit'
 
-        # only when not public?
-        # confirmation?
-        _button [
-          'button-success',
-          onClick: => @props.groups.get(@state.feedGroupId).destroy()
-        ],
-          'Destroy current group'
+            _button [
+              'button-success',
+              onClick: =>
+                group = @props.groups.get(@state.feedGroupId)
+                group.destroy
+                  success: =>
+                    Factlink.notificationCenter.success 'Successfully deleted group'
+                    @setState feedGroupId: 'global'
+                  error: => Factlink.notificationCenter.error 'Error deleting Group'
+            ],
+              'Destroy'
+          ]
 
-      # authorization?
-      if @state.createGroup
-        ReactCreateGroup:
-          group: @state.createGroup
-          onSave: (group) => @_saveGroup(group)
-          onCancel: => @setState createGroup: null
+      if currentSession.signedIn()
+        if @state.createGroup
+          ReactCreateGroup
+            key: @state.createGroup.cid
+            group: @state.createGroup
+            onSave: (group) => @_saveGroup(group)
+            onCancel: => @setState createGroup: null
 
       (if currentSession.signedIn()
         [
