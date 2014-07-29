@@ -86,13 +86,13 @@ window.ReactFeedSelection = React.createClass
         if currentSession.signedIn() && @state.feedGroupId != 'global'
           [
             _button [
-              'button-success',
+              'button',
               onClick: => @setState createGroup: @_createGroup @state.feedGroupId
             ],
               'Edit'
 
             _button [
-              'button-success',
+              'button-danger',
               onClick: =>
                 group = @props.groups.get(@state.feedGroupId)
                 group.destroy
