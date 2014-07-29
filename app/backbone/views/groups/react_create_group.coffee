@@ -17,11 +17,11 @@ window.ReactCreateGroup = React.createClass
       ]
       _button [
         "button-confirm",
-        onClick: @props.onSave(@props.group)
+        onClick: => @props.onSave(@props.group)
       ],
         "Save Group"
       _button [
         "button",
-        onClick: @props.onCancel()
+        onClick: => @props.onCancel()
       ],
         "Cancel"
