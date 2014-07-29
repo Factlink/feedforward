@@ -96,7 +96,8 @@ module Backend
                    created_at: fact_data.created_at,
                    site_title: fact_data.title,
                    created_by: Backend::Users.by_ids(user_ids: fact_data.created_by_id).first,
-                   group_id: fact_data.group_id
+                   group_id: fact_data.group_id,
+                   url: "#{FactlinkUI::Application.config.core_url}/d/#{fact_data.fact_id}"
     end
   end
 end
