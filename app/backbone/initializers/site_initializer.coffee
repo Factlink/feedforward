@@ -12,6 +12,15 @@ class FactlinkRouter extends Backbone.Router
     'user/:username/edit': ->
       showComponent ReactProfileEdit model: currentSession.user()
 
+    'user/:username/groups': ->
+
+      groups = new AllGroups()
+      groups.fetch()
+
+      showComponent ReactGroupMembershipEdit
+        user: currentSession.user()
+        groups: groups
+
     'user/:username/notification-settings': ->
       showComponent ReactNotificationSettings model: currentSession.user()
 
