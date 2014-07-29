@@ -36,7 +36,6 @@ window.ReactFeedActivitiesAutoLoading = React.createBackboneClass
         "There aren't any challenges."
       @model().map (model) =>
         ReactActivity model: model, key: model.id
-      ReactLoadingIndicator model: @model()
       _div [],
         ReactLoadingIndicator
           model: @model()
