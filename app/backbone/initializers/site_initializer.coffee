@@ -7,14 +7,10 @@ class FactlinkRouter extends Backbone.Router
     'feed': ->
       showComponent ReactFeedSelection groups: currentSession.user().groups()
 
-
     'search': 'search' # must be named
 
     'user/:username/edit': ->
       showComponent ReactProfileEdit model: currentSession.user()
-
-    'user/:username/groups': ->
-      showComponent ReactGroupMembershipEdit user: currentSession.user()
 
     'user/:username/notification-settings': ->
       showComponent ReactNotificationSettings model: currentSession.user()

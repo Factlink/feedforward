@@ -26,16 +26,6 @@ window.ReactTopbarMenu = React.createClass
       _a ['dropdown-toggle spec-topbar-menu-arrow', @props.linkClass, 'data-toggle': 'dropdown', href: 'javascript:'],
         _b ['caret']
       _ul ['dropdown-menu'],
-        (if currentSession.user().get('admin') || currentSession.user().get('groups').length
-          [
-            _li ['dropdown-menu-item'],
-              _a [href: "/user/#{username}/groups"],
-                _i ['icon-users']
-                " Groups"
-          ]
-        else
-          []
-        )...
         _li ['dropdown-menu-item'],
          _a [href: "/user/#{username}/edit", rel: 'backbone'],
            _i ['icon-cog']
