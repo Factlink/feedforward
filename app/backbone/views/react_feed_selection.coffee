@@ -29,7 +29,8 @@ window.ReactFeedSelection = React.createClass
   _saveGroup: (group) ->
     isNew = group.isNew()
 
-    group.save {},
+    allGroups = new AllGroups()
+    allGroups.create group,
       success: =>
         if isNew
           Factlink.notificationCenter.success 'Group created!'
