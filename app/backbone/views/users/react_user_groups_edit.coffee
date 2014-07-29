@@ -54,6 +54,11 @@ ReactEditGroup = React.createClass
       success: =>
         Factlink.notificationCenter.success 'Successfully updated group!'
         @setState editing: false
+        group = @props.user_groups.get @props.group
+
+        if group
+          group.set @props.group.attributes
+
       error: =>
         Factlink.notificationCenter.error 'Error updating group'
 
