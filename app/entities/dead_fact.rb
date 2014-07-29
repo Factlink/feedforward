@@ -6,6 +6,7 @@ DeadFact = StrictStruct.new(
   :site_title,
   :created_by,
   :group_id,
+  :url,
 ) do
 
   def to_s
