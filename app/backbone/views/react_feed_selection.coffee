@@ -76,34 +76,6 @@ window.ReactFeedSelection = React.createClass
 
         @_groupButtons()...
 
-        if currentSession.signedIn()
-          _button [
-            'button-success',
-            onClick: => @setState createGroup: @_createGroup()
-          ],
-            'New'
-
-        if currentSession.signedIn() && @state.feedGroupId != 'global'
-          [
-            _button [
-              'button',
-              onClick: => @setState createGroup: @_createGroup @state.feedGroupId
-            ],
-              'Edit'
-
-            _button [
-              'button-danger',
-              onClick: =>
-                group = @props.groups.get(@state.feedGroupId)
-                group.destroy
-                  success: =>
-                    Factlink.notificationCenter.success 'Successfully deleted group'
-                    @setState feedGroupId: 'global'
-                  error: => Factlink.notificationCenter.error 'Error deleting Group'
-            ],
-              'Destroy'
-          ]
-
       if currentSession.signedIn()
         if @state.createGroup
           ReactCreateGroup
@@ -117,6 +89,33 @@ window.ReactFeedSelection = React.createClass
           _div ['feed-selection-row'],
             _button ['button-success', onClick: @_toggle_create_challenge],
               (if !@state.show_create_challenge then "Create challenge" else "Cancel")
+
+            _div ['feed-group-controls'],
+              _span [],
+                'Group controls:'
+              _a [
+                onClick: => @setState createGroup: @_createGroup()
+              ],
+                'New'
+
+              if @state.feedGroupId != 'global'
+                [
+                  _a [
+                    onClick: => @setState createGroup: @_createGroup @state.feedGroupId
+                  ],
+                    'Edit'
+
+                  _a [
+                    onClick: =>
+                      group = @props.groups.get(@state.feedGroupId)
+                      group.destroy
+                        success: =>
+                          Factlink.notificationCenter.success 'Successfully deleted group'
+                          @setState feedGroupId: 'global'
+                        error: => Factlink.notificationCenter.error 'Error deleting Group'
+                  ],
+                    'Destroy'
+                ]
 
           if @state.show_create_challenge
             ReactCreateChallenge
