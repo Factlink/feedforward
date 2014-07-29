@@ -26,6 +26,17 @@ window.ReactFeedSelection = React.createClass
     else
       new Group members: [ currentSession.user().get('username') ]
 
+  _destroyGroup: ->
+    user_group = @props.groups.get(@state.feedGroupId)
+    allGroups = new AllGroups(user_group.clone())
+    group = allGroups.get(user_group.id)
+    group.destroy
+      success: =>
+        Factlink.notificationCenter.success 'Successfully deleted group'
+        @setState feedGroupId: 'global'
+        @props.groups.remove user_group
+      error: => Factlink.notificationCenter.error 'Error deleting Group'
+
   _saveGroup: (group) ->
     isNew = group.isNew()
 
@@ -108,13 +119,7 @@ window.ReactFeedSelection = React.createClass
                   _span [],
                     ' - '
                   _a [
-                    onClick: =>
-                      group = @props.groups.get(@state.feedGroupId)
-                      group.destroy
-                        success: =>
-                          Factlink.notificationCenter.success 'Successfully deleted group'
-                          @setState feedGroupId: 'global'
-                        error: => Factlink.notificationCenter.error 'Error deleting Group'
+                    onClick: @_destroyGroup
                   ],
                     'Destroy group'
                 ]
