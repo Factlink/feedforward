@@ -88,8 +88,7 @@ window.ReactFeedSelection = React.createClass
 
         @_groupButtons()...
 
-      if currentSession.signedIn()
-        if @state.createGroup
+      if currentSession.signedIn() && @state.createGroup
           ReactCreateGroup
             key: @state.createGroup.cid
             group: @state.createGroup
