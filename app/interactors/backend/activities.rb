@@ -105,11 +105,7 @@ module Backend
       activity.updated_at = time.utc
       activity.save!
 
-      # Commented out; the mails are still factlink specific
-      # we left the code in, since changing the mail templates should
-      # be enough to get fully functioning notification mails
-      #
-      # send_mail_for_activity activity: activity if send_mails
+      send_mail_for_activity activity: activity if send_mails
 
       nil
     end

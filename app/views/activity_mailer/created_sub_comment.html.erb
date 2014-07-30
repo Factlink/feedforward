@@ -8,7 +8,7 @@
     <td colspan="3" class="added-comment-message-header">
       <h3>
         <%= link_to @activity[:fact].url, class: "message-title" do %>
-          <%= @activity[:fact].displaystring %>
+          <%= raw @activity[:fact].displaystring %>
         <% end %>
       </h3>
     </td>
