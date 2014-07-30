@@ -22,6 +22,17 @@ module Backend
       group.users.delete user
     end
 
+    def update(group_id:, groupname:)
+      group = Group.find_by! id: group_id
+      group.groupname = groupname
+      group.save!
+    end
+
+    def delete(group_id:)
+      group = Group.find_by! id: group_id
+      group.destroy!
+    end
+
     private
 
     def dead(group)

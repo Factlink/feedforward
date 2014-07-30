@@ -22,6 +22,8 @@ FactlinkUI::Application.routes.draw do
     delete '/annotations/:id' => 'api/annotations#delete'
     post '/groups' => 'api/groups#create'
     get '/groups' => 'api/groups#index'
+    put '/groups/:id' => 'api/groups#update'
+    delete '/groups/:id' => 'api/groups#delete'
     put '/users/:username/groups/:group_id' => 'api/groups#add_member'
     delete '/users/:username/groups/:group_id' => 'api/groups#remove_member'
     get '/groups/:group_id/feed' => 'api/groups#feed'

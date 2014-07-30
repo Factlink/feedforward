@@ -20,9 +20,9 @@ window.ReactChallengeForm = React.createClass
         'Group: '
         _select [ref: 'challengeGroupId', defaultValue: @props.groupId],
           _option [value: null], '(no group / public)'
-          currentSession.user().get('groups').map (group) =>
+          @props.groups.map (group) =>
             _option [value: group.id],
-              group.groupname
+              group.get 'groupname'
       _button ["button-confirm", onClick: @_onClick],
         "Save challenge"
 
@@ -53,4 +53,7 @@ window.ReactCreateChallenge = React.createClass
 
   render: ->
     _div ['challenges-create'],
-      ReactChallengeForm groupId: @props.groupId, onSubmit: @_postChallenge, ref: 'form'
+      ReactChallengeForm
+        groupId: @props.groupId,
+        onSubmit: @_postChallenge, ref: 'form'
+        groups: @props.groups
