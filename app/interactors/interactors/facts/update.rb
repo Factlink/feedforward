@@ -10,6 +10,7 @@ module Interactors
       attribute :id, String
       attribute :group_id, Integer, default: nil
       attribute :pavlov_options, Hash
+      attribute :resolved, Boolean
 
       def authorized?
         pavlov_options[:current_user].admin? ||
@@ -23,7 +24,8 @@ module Interactors
             displaystring: displaystring,
             site_url: site_url, site_title: site_title, updated_at: pavlov_options[:time],
             fact_id: id,
-            group_id: group_id
+            group_id: group_id,
+            resolved: resolved
         )
 
         dead_fact
