@@ -12,7 +12,7 @@ class ActivityMailer < ActionMailer::Base
 
     mail from: from,
          to: @user.email,
-         subject: Sanitize.clean(get_mail_subject_for_activity(@activity)),
+         subject: Sanitize.clean(get_mail_subject_for_activity(@activity)).to_s.html_safe,
          template_name: @activity[:action]
   end
 
