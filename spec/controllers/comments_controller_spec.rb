@@ -74,7 +74,6 @@ describe CommentsController do
       anecdote = {
         introduction: 'Some introduction',
         insight: 'Some insight',
-        resources: 'Some resources',
         actions: 'Some actions',
         effect: 'Some effect',
       }

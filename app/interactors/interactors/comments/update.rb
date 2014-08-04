@@ -34,7 +34,7 @@ module Interactors
 
         if comment.markup_format == 'anecdote'
           anecdote = JSON.parse(content)
-          unless  %w{introduction insight resources actions effect}.all?{|key| anecdote.has_key?(key)}
+          unless  %w{introduction insight actions effect}.all?{|key| anecdote.has_key?(key)}
             fail 'Incorrect anecdote format'
           end
         end
