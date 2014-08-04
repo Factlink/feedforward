@@ -5,7 +5,7 @@ ruby '2.1.2'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
-gem 'rails', '4.1.0' # this is too important to update automatically
+gem 'rails', '4.1.4' # this is too important to update automatically
 
 gem 'rails_12factor', require: false
 gem 'passenger', '~> 4.0.41', require: false
