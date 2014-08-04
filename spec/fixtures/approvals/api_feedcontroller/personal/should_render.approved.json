@@ -53,6 +53,7 @@
       "created_by": null,
       "group_id": null,
       "url": "http://127.0.0.1:3005/d/1",
+      "resolved": false,
       "html_content": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
     },
     "comment": {
@@ -98,6 +99,7 @@
       "created_by": null,
       "group_id": null,
       "url": "http://127.0.0.1:3005/d/1",
+      "resolved": false,
       "html_content": "Fact 1 blablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablablabla"
     },
     "comment": {
