@@ -50,7 +50,7 @@ module Backend
       FactData.find_by(fact_id: fact_id).destroy
     end
 
-    def update(displaystring:, site_title:, site_url:, updated_at:, fact_id:, group_id: nil)
+    def update(displaystring:, site_title:, site_url:, updated_at:, fact_id:, group_id: nil, resolved:)
       fact_data = FactData.where(fact_id: fact_id).first
       raise ActiveRecord::RecordNotFound, ["FactData", {fact_id: fact_id}] unless fact_data
 
@@ -60,6 +60,7 @@ module Backend
       fact_data.fact_id = fact_id
       fact_data.group_id = group_id
       fact_data.updated_at = updated_at
+      fact_data.resolved = resolved
       fact_data.save!
 
       dead(fact_data)
@@ -97,7 +98,8 @@ module Backend
                    site_title: fact_data.title,
                    created_by: Backend::Users.by_ids(user_ids: fact_data.created_by_id).first,
                    group_id: fact_data.group_id,
-                   url: "#{FactlinkUI::Application.config.core_url}/d/#{fact_data.fact_id}"
+                   url: "#{FactlinkUI::Application.config.core_url}/d/#{fact_data.fact_id}",
+                   resolved: fact_data.resolved
     end
   end
 end
