@@ -6,9 +6,9 @@ ruby '2.1.2'
 gem 'dotenv-rails', groups: [:development, :test]
 
 gem 'rails', '4.1.4' # this is too important to update automatically
+gem 'unicorn', '~> 4.8.3', groups: [:staging, :production]
 
 gem 'rails_12factor', require: false
-gem 'passenger', '~> 4.0.41', require: false
 
 gem 'protected_attributes', '~> 1.0.3'
 gem 'rake', '~> 10.1.0', require: false
