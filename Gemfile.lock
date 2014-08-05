@@ -62,7 +62,7 @@ GEM
     approvals (0.0.13)
       nokogiri (~> 1.6)
       thor (~> 0.18)
-    appsignal (0.8.10)
+    appsignal (0.9.3)
       activesupport (>= 3.0)
       rack
       thread_safe
@@ -170,7 +170,7 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     hub (1.12.0)
-    i18n (0.6.9)
+    i18n (0.6.11)
     jar_wrapper (0.1.8)
       zip
     jquery-rails (3.1.0)
@@ -396,7 +396,7 @@ GEM
       eventmachine (>= 1.0.0)
       rack (>= 1.0.0)
     thor (0.19.1)
-    thread_safe (0.3.3)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     timers (1.1.0)
     treetop (1.4.15)
