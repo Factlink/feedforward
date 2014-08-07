@@ -83,6 +83,7 @@ window.ReactTopAnnotation = React.createBackboneClass
 
       if @state.editing
         ReactChallengeForm
+          groups: currentSession.user().groups()
           groupId: @model().get('group_id')
           site_title: @model().get('site_title')
           displaystring: @model().get('displaystring')
