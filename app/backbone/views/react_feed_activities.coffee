@@ -84,7 +84,6 @@ ReactCreatedFactActivity = React.createBackboneClass
           _span ["feed-activity-description"],
             "posted: "
             _strong [],
-              console.log @model()
               fact.get('site_title')
         ]
       },
