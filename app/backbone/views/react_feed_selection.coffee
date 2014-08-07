@@ -6,7 +6,7 @@ window.ReactFeedSelection = React.createClass
   ]
 
   getInitialState: ->
-    feedGroupId: 'global'
+    feedGroupId: 0
     show_create_challenge: false
     createGroup: null
 
@@ -14,7 +14,7 @@ window.ReactFeedSelection = React.createClass
     @setState show_create_challenge: !@state.show_create_challenge
 
   _currentFeed: ->
-    if @state.feedGroupId == 'global'
+    if @state.feedGroupId == 0
       @_globalActivities ?= new DiscussionsFeedActivities
     else
       @_globalActivities ?= {}
@@ -33,7 +33,7 @@ window.ReactFeedSelection = React.createClass
     group.destroy
       success: =>
         Factlink.notificationCenter.success 'Successfully deleted group'
-        @setState feedGroupId: 'global'
+        @setState feedGroupId: 0
         @props.groups.remove user_group
       error: => Factlink.notificationCenter.error 'Error deleting Group'
 
@@ -79,9 +79,9 @@ window.ReactFeedSelection = React.createClass
         ReactToggleButton
           name: 'FeedChoice'
           value:'global'
-          checked: @state.feedGroupId == 'global'
+          checked: @state.feedGroupId == 0
           onChange: => @setState
-            feedGroupId: 'global',
+            feedGroupId: 0,
             show_create_challenge: false,
             createGroup: null
           'Public'
@@ -126,7 +126,7 @@ window.ReactFeedSelection = React.createClass
           if @state.show_create_challenge
             ReactCreateChallenge
               groups: @props.groups
-              groupId: @state.feedGroupId unless @state.feedGroupId == 'global'
+              groupId: @state.feedGroupId
               key: 'create_challenge_' + @state.feedGroupId
         ]
       else [])...

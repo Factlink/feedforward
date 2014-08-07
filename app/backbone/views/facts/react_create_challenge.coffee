@@ -19,7 +19,7 @@ window.ReactChallengeForm = React.createClass
       _label ['challenge-group-input-label'],
         'Group: '
         _select [ref: 'challengeGroupId', defaultValue: @props.groupId],
-          _option [value: null], '(no group / public)'
+          _option [value: 0], '(no group / public)'
           @props.groups.map (group) =>
             _option [value: group.id],
               group.get 'groupname'
@@ -31,7 +31,14 @@ window.ReactChallengeForm = React.createClass
       displaystring: @refs.challengeDescription.getHtml()
       site_title: @refs.challengeName.getDOMNode().value
       site_url: 'kennisland_challenge'
-      group_id: @refs.challengeGroupId.state.value # they should implement a getValue
+      group_id: @_getGroupId()
+
+
+  _getGroupId: ->
+    value = @refs.challengeGroupId.getDOMNode().value
+    if value == '0'
+      return null
+    value
 
   clear: ->
     @refs.challengeDescription.updateHtml ''
