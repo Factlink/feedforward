@@ -35,9 +35,12 @@ window.ReactTopAnnotation = React.createBackboneClass
     _div ['top-annotation'],
       if @model().get('html_content')
         [
-          if @model().get('resolved')
-            _strong [], 'RESOLVED'
-
+          _h4 [],
+            [
+              if @model().get('resolved')
+                'RESOLVED - '
+              @model().get('site_title')
+            ]
           _span [dangerouslySetInnerHTML: {__html: @model().get('html_content')}]
         ]
       else

@@ -82,7 +82,10 @@ ReactCreatedFactActivity = React.createBackboneClass
         target: fact_link.target
         activity_header_action: [
           _span ["feed-activity-description"],
-            "posted a challenge: "
+            "posted: "
+            _strong [],
+              console.log @model()
+              fact.get('site_title')
         ]
       },
       _span [
