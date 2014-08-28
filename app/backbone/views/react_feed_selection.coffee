@@ -107,7 +107,7 @@ window.ReactFeedSelection = React.createClass
               ],
                 'New group'
 
-              if @state.feedGroupId != 'global'
+              if @state.feedGroupId != 0 && currentSession.user().get('admin')
                 [
                   _span [],
                     ' - '

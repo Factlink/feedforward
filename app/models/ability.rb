@@ -82,14 +82,6 @@ class Ability
       user.groups.include? group
     end
 
-    can :update, Group do |group|
-      user.groups.include? group
-    end
-
-    can :destroy, Group do |group|
-      user.groups.include? group
-    end
-
     can :create, Group
   end
 
