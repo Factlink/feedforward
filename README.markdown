@@ -1,16 +1,12 @@
 ## Core
 
-This project is the factlink core application. Currently it consists of
-
-* The backend
-* The website
-* The communication layer between the backend and the js-library
+[![Build Status](https://travis-ci.org/Factlink/feedforward.svg?branch=master)](https://travis-ci.org/Factlink/feedforward) [![Dependency Status](https://gemnasium.com/Factlink/feedforward.svg)](https://gemnasium.com/Factlink/feedforward) [![Code Climate](https://codeclimate.com/github/Factlink/feedforward.png)](https://codeclimate.com/github/Factlink/feedforward) [![Code Climate](https://codeclimate.com/github/Factlink/feedforward/coverage.png)](https://codeclimate.com/github/Factlink/feedforward)
 
 ## Installation
 
 For setting up the basic dependencies on your system, see:
 
-https://github.com/Factlink/factlink/wiki/Setting-up-a-developer-environment
+https://github.com/Factlink/feedforward/wiki/Setting-up-a-developer-environment
 
 Checkout this repo.
 
@@ -18,7 +14,7 @@ To install system level prerequisites, run `bin/bootstrap-mac` or `bin/bootstrap
 
 Then you're basically set!
 
-You can start factlink by running
+You can start feedforward by running
 
 ```
 ./start-all.sh
