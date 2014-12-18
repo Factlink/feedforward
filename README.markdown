@@ -37,4 +37,4 @@ Now open your browser and surf to http://localhost:3000
 
 ## Licensing
 
-Copyright (c) 2011-2014 Kennisland and individual contributors. Licensed under MIT license, see [LICENSE.txt](LICENSE.txt) for the full license.
+Copyright (c) 2011-2014 Kennisland and individual contributors. Dual Licensed under the EUPL V.1.1 and MIT, see [LICENSE.txt](LICENSE.txt) for the full license.
